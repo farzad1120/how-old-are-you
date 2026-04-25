@@ -13,7 +13,7 @@ This repo ships a Docker-based dev environment so you can build and exercise the
 
 - Docker 24+ with Compose V2
 
-## Spin up WordPress + MariaDB
+## Spin up WordPress 6.9 + MariaDB 11 + PHP 8.4
 
 ```sh
 docker compose -f docker-compose.dev.yml up -d
