@@ -86,11 +86,12 @@ $seo          = isset( $seo ) && is_array( $seo ) ? $seo : array();
 		<meta name="twitter:description" content="<?php echo esc_attr( $seo['description'] ); ?>" />
 	<?php endif; ?>
 	<link rel="stylesheet" href="<?php echo esc_url( $assets . 'css/frontend.css?ver=' . rawurlencode( $css_ver ) ); ?>" />
-	<style id="hoay-vars">.hoay-overlay { <?php echo esc_html( $css_vars ); ?> }
-	<?php
-	if ( '' !== $custom_css ) :
-		?>
-		<?php echo wp_strip_all_tags( $custom_css ); // Sanitised in Sanitizer::css. ?> <?php endif; ?></style>
+	<style id="hoay-vars">
+		.hoay-overlay { <?php echo str_replace( array( '</style', '</STYLE' ), '', $css_vars ); ?> }
+		<?php if ( '' !== $custom_css ) : ?>
+			<?php echo str_replace( array( '</style', '</STYLE' ), '', $custom_css ); ?>
+		<?php endif; ?>
+	</style>
 </head>
 <body class="hoay-body">
 	<div class="hoay-overlay" role="dialog" aria-modal="true" aria-labelledby="hoay-heading">

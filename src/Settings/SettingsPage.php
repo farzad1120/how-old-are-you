@@ -207,9 +207,9 @@ final class SettingsPage {
 		$out['custom_css']     = Sanitizer::css( isset( $input['custom_css'] ) ? $input['custom_css'] : '' );
 		$out['excluded_paths'] = Sanitizer::path_list( isset( $input['excluded_paths'] ) ? $input['excluded_paths'] : '' );
 
-		$out['seo_bot_bypass']           = Sanitizer::bool( isset( $input['seo_bot_bypass'] ) ? $input['seo_bot_bypass'] : false );
-		$out['seo_bot_user_agents']      = Sanitizer::user_agent_list( isset( $input['seo_bot_user_agents'] ) ? $input['seo_bot_user_agents'] : '' );
-		$out['seo_robots_meta']          = Sanitizer::robots_meta( isset( $input['seo_robots_meta'] ) ? $input['seo_robots_meta'] : $defaults['seo_robots_meta'] );
+		$out['seo_bot_bypass']      = Sanitizer::bool( isset( $input['seo_bot_bypass'] ) ? $input['seo_bot_bypass'] : false );
+		$out['seo_bot_user_agents'] = Sanitizer::user_agent_list( isset( $input['seo_bot_user_agents'] ) ? $input['seo_bot_user_agents'] : '' );
+		$out['seo_robots_meta']     = Sanitizer::robots_meta( isset( $input['seo_robots_meta'] ) ? $input['seo_robots_meta'] : $defaults['seo_robots_meta'] );
 		if ( '' === $out['seo_robots_meta'] ) {
 			$out['seo_robots_meta'] = $defaults['seo_robots_meta'];
 		}
