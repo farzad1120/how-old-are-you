@@ -4,7 +4,7 @@ Tags: age verification, age gate, compliance, alcohol, cannabis
 Requires at least: 6.0
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -72,11 +72,22 @@ In a single signed cookie (`hoay_verified` by default). Nothing is stored server
 
 == Changelog ==
 
+= 1.1.0 =
+
+* New theming options: font family, body and heading sizes, panel width/padding/border-radius, button/input border-radius, backdrop blur, background image (with cover/contain/auto sizing), logo max width, text alignment.
+* Every theming setting is now exposed as a CSS custom property on the overlay so Custom CSS can lean on the same tokens.
+* DOB input follows the WordPress site locale: localized format hint based on `date_format`, `lang` attribute on the native picker, and an optional dropdown-selects mode that renders day/month/year using `date_i18n()` for site-localized month names.
+* Improved admin Appearance section: split into Logo / Background / Panel / Typography / Controls / Custom CSS subsections.
+
 = 1.0.0 =
 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+
+Adds many new theming options and a site-locale-aware DOB input. Backward compatible — existing settings keep working unchanged.
 
 = 1.0.0 =
 

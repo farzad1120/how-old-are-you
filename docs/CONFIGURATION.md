@@ -9,6 +9,7 @@ All settings live under **Settings → Age Verification** in the WordPress admin
 | Enable gate | bool | `true` | Master switch. When off, the gate never renders. |
 | Minimum age | int 1–120 | `18` | Visitors below this age cannot pass. |
 | Verification mode | radio | `dob` | `dob` (date picker) or `confirm` (yes/no buttons). |
+| DOB input style | radio | `native` | `native` (HTML5 picker, follows the document `lang`) or `selects` (three site-localized dropdowns). |
 
 ## Cookie
 
@@ -37,15 +38,69 @@ Every string supports the placeholder `{age}`, which is replaced with the config
 
 ## Appearance
 
-| Field | Type | Notes |
-|---|---|---|
-| Logo | media library image | Optional, displayed centered above the heading. |
-| Background color | hex | Page background behind the panel. |
-| Overlay opacity | float 0–1 | Darkens the background. |
-| Panel color | hex | Card background. |
-| Text color | hex | Primary text color. |
-| Accent color | hex | Buttons + focus ring. |
-| Custom CSS | textarea | Scoped to the verification document. Tags and obvious script sequences are stripped on save. |
+The Appearance section is split into six subsections in the admin UI.
+
+### Logo
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| Logo | media library image | none | Optional, displayed centered above the heading. |
+| Logo max width (px) | int 40–400 | `160` | Caps the rendered logo width. |
+
+### Background
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| Background color | hex | `#0b0b0b` | Page background behind the panel. |
+| Background image | media library image | none | Optional image laid over the background color. |
+| Background image size | enum | `cover` | `cover`, `contain`, or `auto` (CSS `background-size`). |
+| Overlay opacity | float 0–1 | `0.92` | Darkens whatever is behind the panel. |
+| Backdrop blur (px) | int 0–32 | `0` | Frosted-glass effect via `backdrop-filter: blur()`. |
+
+### Panel
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| Panel color | hex | `#ffffff` | Card background. |
+| Panel width (px) | int 320–720 | `440` | Maximum width of the card. |
+| Panel padding (px) | int 16–64 | `36` | Inner spacing. |
+| Panel border radius (px) | int 0–32 | `12` | |
+
+### Typography
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| Font family | text | empty | CSS font stack. Empty falls back to a system stack. |
+| Body font size (px) | int 12–24 | `16` | |
+| Heading font size (px) | int 16–48 | `22` | |
+| Text color | hex | `#111111` | |
+| Text alignment | enum | `center` | `left`, `center`, or `right`. |
+
+### Controls
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| Accent color | hex | `#c7a008` | Primary button background and focus ring. |
+| Button border radius (px) | int 0–32 | `8` | |
+| Input border radius (px) | int 0–32 | `8` | |
+
+### Custom CSS
+
+A textarea scoped to the verification overlay. Tags and obvious script sequences are stripped on save (`<`, `>`, `javascript:`, `expression(`, `behavior:`, `@import`).
+
+Every theming setting above is exposed as a CSS custom property, so Custom CSS can compose with them:
+
+```
+--hoay-bg              --hoay-text
+--hoay-bg-image        --hoay-text-align
+--hoay-bg-size         --hoay-accent
+--hoay-opacity         --hoay-font
+--hoay-blur            --hoay-font-size
+--hoay-panel           --hoay-heading-size
+--hoay-panel-width     --hoay-button-radius
+--hoay-panel-padding   --hoay-input-radius
+--hoay-panel-radius    --hoay-logo-max
+```
 
 ## Exclusions
 
