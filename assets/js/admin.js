@@ -14,19 +14,21 @@
 
 		var frames = {};
 
+		var idByTarget = {
+			'logo':     '#hoay-logo-id',
+			'bg-image': '#hoay-bg-image-id',
+			'og-image': '#hoay-og-image-id'
+		};
+
 		function targetForButton( $button ) {
 			var key = $button.data( 'target' ) || 'logo';
 			var $row = $button.closest( 'tr, td' );
-			var $id;
-			var $preview;
-			if ( key === 'bg-image' ) {
-				$id      = $( '#hoay-bg-image-id' );
-				$preview = $row.find( '.hoay-media-preview' ).first();
-			} else {
-				$id      = $( '#hoay-logo-id' );
-				$preview = $row.find( '.hoay-media-preview' ).first();
-			}
-			return { key: key, $id: $id, $preview: $preview };
+			var selector = idByTarget[ key ] || idByTarget.logo;
+			return {
+				key:      key,
+				$id:      $( selector ),
+				$preview: $row.find( '.hoay-media-preview' ).first()
+			};
 		}
 
 		$( '.hoay-media-pick' ).on( 'click', function ( e ) {

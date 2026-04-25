@@ -19,6 +19,11 @@ $logo_url     = $options['logo_attachment_id']
 $bg_image_url = $options['background_image_id']
 	? (string) wp_get_attachment_image_url( (int) $options['background_image_id'], 'medium' )
 	: '';
+$og_image_url = $options['seo_og_image_id']
+	? (string) wp_get_attachment_image_url( (int) $options['seo_og_image_id'], 'medium' )
+	: '';
+
+$default_bots = implode( ', ', array_slice( \HOAY\Support\BotDetector::DEFAULT_TOKENS, 0, 8 ) ) . ', …';
 ?>
 <div class="wrap hoay-settings">
 	<h1><?php esc_html_e( 'Age Verification', 'how-old-are-you' ); ?></h1>
@@ -287,6 +292,78 @@ $bg_image_url = $options['background_image_id']
 						<code>--hoay-font-size</code>, <code>--hoay-heading-size</code>,
 						<code>--hoay-text-align</code>, <code>--hoay-logo-max</code>, <code>--hoay-bg-size</code>.
 					</p>
+				</td>
+			</tr>
+		</table>
+
+		<h2 class="title"><?php esc_html_e( 'SEO', 'how-old-are-you' ); ?></h2>
+		<p class="description"><?php esc_html_e( 'Make the gate friendly to search engines and social media link previews.', 'how-old-are-you' ); ?></p>
+		<table class="form-table" role="presentation">
+			<tr>
+				<th scope="row"><label for="hoay-seo-bot-bypass"><?php esc_html_e( 'Bypass for crawlers', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<label>
+						<input type="checkbox" id="hoay-seo-bot-bypass" name="hoay_settings[seo_bot_bypass]" value="1" <?php checked( ! empty( $options['seo_bot_bypass'] ) ); ?> />
+						<?php esc_html_e( 'Allow known search engines and social-media unfurlers to see the real page.', 'how-old-are-you' ); ?>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-seo-bot-uas"><?php esc_html_e( 'Crawler user agents', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<textarea id="hoay-seo-bot-uas" name="hoay_settings[seo_bot_user_agents]" rows="6" class="large-text code" placeholder="Googlebot&#10;Bingbot&#10;facebookexternalhit&#10;Twitterbot"><?php echo esc_textarea( $options['seo_bot_user_agents'] ); ?></textarea>
+					<p class="description">
+						<?php esc_html_e( 'One token per line, case-insensitive substring match. Leave blank to use the built-in defaults:', 'how-old-are-you' ); ?>
+						<code><?php echo esc_html( $default_bots ); ?></code>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-seo-robots"><?php esc_html_e( 'Robots meta', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<input type="text" id="hoay-seo-robots" name="hoay_settings[seo_robots_meta]" value="<?php echo esc_attr( $options['seo_robots_meta'] ); ?>" class="regular-text" />
+					<p class="description"><?php esc_html_e( 'Comma-separated. Allowed: index, noindex, follow, nofollow, noarchive, nosnippet, noimageindex, none, all.', 'how-old-are-you' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Canonical URL', 'how-old-are-you' ); ?></th>
+				<td>
+					<label>
+						<input type="checkbox" name="hoay_settings[seo_canonical_to_request]" value="1" <?php checked( ! empty( $options['seo_canonical_to_request'] ) ); ?> />
+						<?php esc_html_e( 'Emit a canonical link pointing to the requested URL on the overlay.', 'how-old-are-you' ); ?>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Inherit Open Graph', 'how-old-are-you' ); ?></th>
+				<td>
+					<label>
+						<input type="checkbox" name="hoay_settings[seo_inherit_open_graph]" value="1" <?php checked( ! empty( $options['seo_inherit_open_graph'] ) ); ?> />
+						<?php esc_html_e( "Use the resolved post or term's title (and featured image) for og:title / og:image when available.", 'how-old-are-you' ); ?>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-seo-description"><?php esc_html_e( 'Meta description', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<textarea id="hoay-seo-description" name="hoay_settings[seo_meta_description]" rows="2" class="large-text"><?php echo esc_textarea( $options['seo_meta_description'] ); ?></textarea>
+					<p class="description"><?php esc_html_e( 'Optional. Falls back to the body text above when empty.', 'how-old-are-you' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Open Graph image', 'how-old-are-you' ); ?></th>
+				<td>
+					<input type="hidden" id="hoay-og-image-id" name="hoay_settings[seo_og_image_id]" value="<?php echo esc_attr( (string) $options['seo_og_image_id'] ); ?>" />
+					<div class="hoay-media-preview hoay-media-preview--og" data-empty="<?php esc_attr_e( 'No image selected', 'how-old-are-you' ); ?>">
+						<?php if ( $og_image_url ) : ?>
+							<img src="<?php echo esc_url( $og_image_url ); ?>" alt="" />
+						<?php else : ?>
+							<span class="hoay-media-empty"><?php esc_html_e( 'No image selected', 'how-old-are-you' ); ?></span>
+						<?php endif; ?>
+					</div>
+					<button type="button" class="button hoay-media-pick" data-target="og-image"><?php esc_html_e( 'Choose image', 'how-old-are-you' ); ?></button>
+					<button type="button" class="button-link-delete hoay-media-clear" data-target="og-image"><?php esc_html_e( 'Remove', 'how-old-are-you' ); ?></button>
+					<p class="description"><?php esc_html_e( 'Used when the resolved page has no featured image. Recommended size 1200×630.', 'how-old-are-you' ); ?></p>
 				</td>
 			</tr>
 		</table>
