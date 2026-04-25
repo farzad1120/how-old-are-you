@@ -82,4 +82,39 @@ final class SanitizerTest extends TestCase {
 	public function test_text_strips_html_when_wp_unavailable() {
 		$this->assertSame( 'hello', Sanitizer::text( '  <b>hello</b>  ' ) );
 	}
+
+	public function test_font_family_strips_disallowed_characters() {
+		$this->assertSame( '"Helvetica Neue", Arial, sans-serif', Sanitizer::font_family( '"Helvetica Neue", Arial, sans-serif' ) );
+		$this->assertSame( "Inter, system-ui, sans-serif", Sanitizer::font_family( "Inter, system-ui, sans-serif" ) );
+	}
+
+	public function test_font_family_drops_braces_semicolons_and_url() {
+		$injected = "Arial; } .hax { background: url(evil.com); /* sans-serif */";
+		$cleaned  = Sanitizer::font_family( $injected );
+		$this->assertStringNotContainsString( '{', $cleaned );
+		$this->assertStringNotContainsString( '}', $cleaned );
+		$this->assertStringNotContainsString( ';', $cleaned );
+		$this->assertStringNotContainsString( ':', $cleaned );
+		$this->assertStringNotContainsString( '(', $cleaned );
+		$this->assertStringNotContainsString( ')', $cleaned );
+		$this->assertStringNotContainsString( '*', $cleaned );
+		$this->assertStringNotContainsString( '/', $cleaned );
+	}
+
+	public function test_font_family_returns_empty_for_non_scalar() {
+		$this->assertSame( '', Sanitizer::font_family( array( 'arr' ) ) );
+		$this->assertSame( '', Sanitizer::font_family( null ) );
+	}
+
+	public function test_dob_input_styles_constant_lists_expected_values() {
+		$this->assertSame( array( 'native', 'selects' ), Sanitizer::DOB_INPUT_STYLES );
+	}
+
+	public function test_text_alignments_constant_lists_expected_values() {
+		$this->assertSame( array( 'left', 'center', 'right' ), Sanitizer::TEXT_ALIGNMENTS );
+	}
+
+	public function test_background_sizes_constant_lists_expected_values() {
+		$this->assertSame( array( 'cover', 'contain', 'auto' ), Sanitizer::BACKGROUND_SIZES );
+	}
 }
