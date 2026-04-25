@@ -1,5 +1,5 @@
 default:
-  image: php:8.2-cli
+  image: php:8.5-cli
 
 stages:
   - lint
@@ -45,9 +45,9 @@ test:php81:
   script:
     - composer run test:unit
 
-test:php83:
+test:php85:
   stage: test
-  image: php:8.3-cli
+  image: php:8.5-cli
   <<: *composer_setup
   script:
     - composer run test:unit

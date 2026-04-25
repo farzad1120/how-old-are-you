@@ -35,7 +35,7 @@ final class AgeCalculator {
 	 * @param DateTimeZone|null $timezone Site timezone; defaults to UTC.
 	 * @return int|null Age in years, or null if the input is invalid.
 	 */
-	public static function age_from_dob( $dob_ymd, DateTimeZone $timezone = null ) {
+	public static function age_from_dob( $dob_ymd, ?DateTimeZone $timezone = null ) {
 		if ( ! is_string( $dob_ymd ) || '' === $dob_ymd ) {
 			return null;
 		}
@@ -80,7 +80,7 @@ final class AgeCalculator {
 	 * @param DateTimeZone|null $timezone Site timezone; defaults to UTC.
 	 * @return bool
 	 */
-	public static function is_of_age( $dob_ymd, $minimum, DateTimeZone $timezone = null ) {
+	public static function is_of_age( $dob_ymd, $minimum, ?DateTimeZone $timezone = null ) {
 		$age = self::age_from_dob( $dob_ymd, $timezone );
 		return null !== $age && $age >= (int) $minimum;
 	}
