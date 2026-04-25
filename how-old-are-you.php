@@ -3,7 +3,7 @@
  * Plugin Name:       How Old Are You
  * Plugin URI:        https://github.com/farzad1120/how-old-are-you
  * Description:       Block under-age visitors from the public frontend with a customizable age-verification gate. Supports date-of-birth or simple confirmation modes, signed cookies, and full theming.
- * Version:           1.2.0
+ * Version:           1.0.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Farzad Zarasvand
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'HOAY_VERSION', '1.2.0' );
+define( 'HOAY_VERSION', '1.0.0' );
 define( 'HOAY_PLUGIN_FILE', __FILE__ );
 define( 'HOAY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HOAY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
