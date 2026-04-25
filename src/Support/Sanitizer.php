@@ -200,6 +200,60 @@ final class Sanitizer {
 	}
 
 	/**
+	 * Sanitize a robots meta value.
+	 *
+	 * Accepts comma- or space-separated tokens from the standard set
+	 * (`index`, `noindex`, `follow`, `nofollow`, `noarchive`, `nosnippet`,
+	 * `noimageindex`, `none`, `all`). Anything else is stripped. Returns
+	 * an empty string if no valid token remains.
+	 *
+	 * @param mixed $value Raw input.
+	 * @return string
+	 */
+	public static function robots_meta( $value ) {
+		$value   = is_scalar( $value ) ? (string) $value : '';
+		$allowed = array( 'index', 'noindex', 'follow', 'nofollow', 'noarchive', 'nosnippet', 'noimageindex', 'none', 'all' );
+		$tokens  = preg_split( '/[\s,]+/', strtolower( $value ) );
+		$out     = array();
+		foreach ( (array) $tokens as $token ) {
+			$token = trim( (string) $token );
+			if ( '' !== $token && in_array( $token, $allowed, true ) ) {
+				$out[] = $token;
+			}
+		}
+		return implode( ',', array_unique( $out ) );
+	}
+
+	/**
+	 * Sanitize a list of user-agent tokens (one per line).
+	 *
+	 * Each non-empty line is stripped of control characters and trimmed.
+	 * Tokens are case-insensitive at match time, so we keep the user's
+	 * original casing for display.
+	 *
+	 * @param mixed $value Raw input.
+	 * @return string Newline-joined cleaned list.
+	 */
+	public static function user_agent_list( $value ) {
+		$value = is_scalar( $value ) ? (string) $value : '';
+		$lines = preg_split( '/\r\n|\r|\n/', $value );
+		$out   = array();
+		foreach ( (array) $lines as $line ) {
+			$line = trim( (string) $line );
+			if ( '' === $line ) {
+				continue;
+			}
+			$line = preg_replace( '/[\x00-\x1F\x7F]/', '', $line );
+			$line = preg_replace( '/[<>"\'`]/', '', $line );
+			$line = trim( (string) $line );
+			if ( '' !== $line ) {
+				$out[] = $line;
+			}
+		}
+		return implode( "\n", array_values( array_unique( $out ) ) );
+	}
+
+	/**
 	 * Sanitize an excluded-paths blob (one path per line).
 	 *
 	 * @param mixed $value Raw input.
