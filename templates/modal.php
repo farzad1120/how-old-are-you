@@ -45,8 +45,9 @@ $submit_label = Options::interpolate_age( (string) $options['submit_label'] );
 $reject_head  = Options::interpolate_age( (string) $options['rejection_heading'] );
 $reject_body  = Options::interpolate_age( (string) $options['rejection_body'] );
 $custom_css   = (string) $options['custom_css'];
+$is_rtl       = function_exists( 'is_rtl' ) && is_rtl();
 ?><!DOCTYPE html>
-<html lang="<?php echo esc_attr( $lang ); ?>">
+<html lang="<?php echo esc_attr( $lang ); ?>" dir="<?php echo $is_rtl ? 'rtl' : 'ltr'; ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
