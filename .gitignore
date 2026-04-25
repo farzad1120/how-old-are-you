@@ -1,0 +1,29 @@
+# Composer
+/vendor/
+composer.lock
+
+# PHPUnit
+/.phpunit.cache/
+.phpunit.result.cache
+/tests/coverage/
+/coverage.xml
+
+# PHPCS
+/.phpcs-cache
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/build/
+/dist/
+*.zip
+
+# Local env
+.env
+.env.local
