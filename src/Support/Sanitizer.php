@@ -33,6 +33,27 @@ final class Sanitizer {
 	const VERIFICATION_MODES = array( 'dob', 'confirm' );
 
 	/**
+	 * Allowed values for `dob_input_style`.
+	 *
+	 * @var string[]
+	 */
+	const DOB_INPUT_STYLES = array( 'native', 'selects' );
+
+	/**
+	 * Allowed values for `text_align`.
+	 *
+	 * @var string[]
+	 */
+	const TEXT_ALIGNMENTS = array( 'left', 'center', 'right' );
+
+	/**
+	 * Allowed values for `background_image_size` (CSS background-size keywords).
+	 *
+	 * @var string[]
+	 */
+	const BACKGROUND_SIZES = array( 'cover', 'contain', 'auto' );
+
+	/**
 	 * Coerce any input to a boolean.
 	 *
 	 * Treats `'1'`, `1`, `true`, `'true'`, `'on'`, `'yes'` as true and
@@ -203,6 +224,23 @@ final class Sanitizer {
 			$out[] = $line;
 		}
 		return implode( "\n", $out );
+	}
+
+	/**
+	 * Sanitize a CSS font-family string.
+	 *
+	 * Allows letters, digits, spaces, commas, hyphens, underscores, and
+	 * single/double quotes — the character set needed to express any valid
+	 * font stack like `"Helvetica Neue", Arial, sans-serif`. Anything else
+	 * is stripped to prevent CSS-context escape attempts.
+	 *
+	 * @param mixed $value Raw input.
+	 * @return string
+	 */
+	public static function font_family( $value ) {
+		$value = is_scalar( $value ) ? (string) $value : '';
+		$value = preg_replace( '/[^A-Za-z0-9 ,\'"_\-]/', '', $value );
+		return is_string( $value ) ? trim( $value ) : '';
 	}
 
 	/**
