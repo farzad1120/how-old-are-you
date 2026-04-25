@@ -13,8 +13,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$logo_url = $options['logo_attachment_id']
+$logo_url     = $options['logo_attachment_id']
 	? (string) wp_get_attachment_image_url( (int) $options['logo_attachment_id'], 'medium' )
+	: '';
+$bg_image_url = $options['background_image_id']
+	? (string) wp_get_attachment_image_url( (int) $options['background_image_id'], 'medium' )
 	: '';
 ?>
 <div class="wrap hoay-settings">
@@ -53,6 +56,21 @@ $logo_url = $options['logo_attachment_id']
 						<label>
 							<input type="radio" name="hoay_settings[verification_mode]" value="confirm" <?php checked( 'confirm', $options['verification_mode'] ); ?> />
 							<?php esc_html_e( 'Confirmation — visitor clicks "I am over X" / "I am under X".', 'how-old-are-you' ); ?>
+						</label>
+					</fieldset>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'DOB input style', 'how-old-are-you' ); ?></th>
+				<td>
+					<fieldset>
+						<label>
+							<input type="radio" name="hoay_settings[dob_input_style]" value="native" <?php checked( 'native', $options['dob_input_style'] ); ?> />
+							<?php esc_html_e( 'Native HTML5 date input (browser picker, follows the document language).', 'how-old-are-you' ); ?>
+						</label><br />
+						<label>
+							<input type="radio" name="hoay_settings[dob_input_style]" value="selects" <?php checked( 'selects', $options['dob_input_style'] ); ?> />
+							<?php esc_html_e( 'Site-localized dropdowns (day / month / year — month names always follow the site language).', 'how-old-are-you' ); ?>
 						</label>
 					</fieldset>
 				</td>
@@ -118,7 +136,7 @@ $logo_url = $options['logo_attachment_id']
 			</tr>
 		</table>
 
-		<h2 class="title"><?php esc_html_e( 'Appearance', 'how-old-are-you' ); ?></h2>
+		<h2 class="title"><?php esc_html_e( 'Appearance — Logo', 'how-old-are-you' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
 				<th scope="row"><?php esc_html_e( 'Logo', 'how-old-are-you' ); ?></th>
@@ -131,35 +149,144 @@ $logo_url = $options['logo_attachment_id']
 							<span class="hoay-media-empty"><?php esc_html_e( 'No logo selected', 'how-old-are-you' ); ?></span>
 						<?php endif; ?>
 					</div>
-					<button type="button" class="button hoay-media-pick"><?php esc_html_e( 'Choose image', 'how-old-are-you' ); ?></button>
-					<button type="button" class="button-link-delete hoay-media-clear"><?php esc_html_e( 'Remove', 'how-old-are-you' ); ?></button>
+					<button type="button" class="button hoay-media-pick" data-target="logo"><?php esc_html_e( 'Choose image', 'how-old-are-you' ); ?></button>
+					<button type="button" class="button-link-delete hoay-media-clear" data-target="logo"><?php esc_html_e( 'Remove', 'how-old-are-you' ); ?></button>
 				</td>
 			</tr>
 			<tr>
+				<th scope="row"><label for="hoay-logo-max"><?php esc_html_e( 'Logo max width (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-logo-max" name="hoay_settings[logo_max_width_px]" min="40" max="400" step="1" value="<?php echo esc_attr( (string) $options['logo_max_width_px'] ); ?>" /></td>
+			</tr>
+		</table>
+
+		<h2 class="title"><?php esc_html_e( 'Appearance — Background', 'how-old-are-you' ); ?></h2>
+		<table class="form-table" role="presentation">
+			<tr>
 				<th scope="row"><label for="hoay-bg-color"><?php esc_html_e( 'Background color', 'how-old-are-you' ); ?></label></th>
 				<td><input type="text" id="hoay-bg-color" class="hoay-color" name="hoay_settings[background_color]" value="<?php echo esc_attr( $options['background_color'] ); ?>" /></td>
+			</tr>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Background image', 'how-old-are-you' ); ?></th>
+				<td>
+					<input type="hidden" id="hoay-bg-image-id" name="hoay_settings[background_image_id]" value="<?php echo esc_attr( (string) $options['background_image_id'] ); ?>" />
+					<div class="hoay-media-preview hoay-media-preview--bg" data-empty="<?php esc_attr_e( 'No background image selected', 'how-old-are-you' ); ?>">
+						<?php if ( $bg_image_url ) : ?>
+							<img src="<?php echo esc_url( $bg_image_url ); ?>" alt="" />
+						<?php else : ?>
+							<span class="hoay-media-empty"><?php esc_html_e( 'No background image selected', 'how-old-are-you' ); ?></span>
+						<?php endif; ?>
+					</div>
+					<button type="button" class="button hoay-media-pick" data-target="bg-image"><?php esc_html_e( 'Choose image', 'how-old-are-you' ); ?></button>
+					<button type="button" class="button-link-delete hoay-media-clear" data-target="bg-image"><?php esc_html_e( 'Remove', 'how-old-are-you' ); ?></button>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-bg-size"><?php esc_html_e( 'Background image size', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<select id="hoay-bg-size" name="hoay_settings[background_image_size]">
+						<?php foreach ( array( 'cover', 'contain', 'auto' ) as $option ) : ?>
+							<option value="<?php echo esc_attr( $option ); ?>" <?php selected( $option, $options['background_image_size'] ); ?>><?php echo esc_html( $option ); ?></option>
+						<?php endforeach; ?>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row"><label for="hoay-opacity"><?php esc_html_e( 'Overlay opacity', 'how-old-are-you' ); ?></label></th>
 				<td><input type="number" id="hoay-opacity" name="hoay_settings[overlay_opacity]" min="0" max="1" step="0.01" value="<?php echo esc_attr( (string) $options['overlay_opacity'] ); ?>" /></td>
 			</tr>
 			<tr>
+				<th scope="row"><label for="hoay-blur"><?php esc_html_e( 'Backdrop blur (px)', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<input type="number" id="hoay-blur" name="hoay_settings[backdrop_blur_px]" min="0" max="32" step="1" value="<?php echo esc_attr( (string) $options['backdrop_blur_px'] ); ?>" />
+					<p class="description"><?php esc_html_e( 'Frosted-glass effect over the background. Set to 0 to disable.', 'how-old-are-you' ); ?></p>
+				</td>
+			</tr>
+		</table>
+
+		<h2 class="title"><?php esc_html_e( 'Appearance — Panel', 'how-old-are-you' ); ?></h2>
+		<table class="form-table" role="presentation">
+			<tr>
 				<th scope="row"><label for="hoay-panel-color"><?php esc_html_e( 'Panel color', 'how-old-are-you' ); ?></label></th>
 				<td><input type="text" id="hoay-panel-color" class="hoay-color" name="hoay_settings[panel_color]" value="<?php echo esc_attr( $options['panel_color'] ); ?>" /></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-panel-width"><?php esc_html_e( 'Panel width (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-panel-width" name="hoay_settings[panel_width_px]" min="320" max="720" step="1" value="<?php echo esc_attr( (string) $options['panel_width_px'] ); ?>" /></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-panel-padding"><?php esc_html_e( 'Panel padding (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-panel-padding" name="hoay_settings[panel_padding_px]" min="16" max="64" step="1" value="<?php echo esc_attr( (string) $options['panel_padding_px'] ); ?>" /></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-panel-radius"><?php esc_html_e( 'Panel border radius (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-panel-radius" name="hoay_settings[panel_radius_px]" min="0" max="32" step="1" value="<?php echo esc_attr( (string) $options['panel_radius_px'] ); ?>" /></td>
+			</tr>
+		</table>
+
+		<h2 class="title"><?php esc_html_e( 'Appearance — Typography', 'how-old-are-you' ); ?></h2>
+		<table class="form-table" role="presentation">
+			<tr>
+				<th scope="row"><label for="hoay-font-family"><?php esc_html_e( 'Font family', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<input type="text" id="hoay-font-family" class="regular-text" name="hoay_settings[font_family]" value="<?php echo esc_attr( $options['font_family'] ); ?>" placeholder='"Inter", system-ui, sans-serif' />
+					<p class="description"><?php esc_html_e( 'CSS font stack. Leave empty to inherit a system default. Quotes, commas, hyphens, and spaces only.', 'how-old-are-you' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-font-size"><?php esc_html_e( 'Body font size (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-font-size" name="hoay_settings[font_size_base_px]" min="12" max="24" step="1" value="<?php echo esc_attr( (string) $options['font_size_base_px'] ); ?>" /></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-heading-size"><?php esc_html_e( 'Heading font size (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-heading-size" name="hoay_settings[heading_size_px]" min="16" max="48" step="1" value="<?php echo esc_attr( (string) $options['heading_size_px'] ); ?>" /></td>
 			</tr>
 			<tr>
 				<th scope="row"><label for="hoay-text-color"><?php esc_html_e( 'Text color', 'how-old-are-you' ); ?></label></th>
 				<td><input type="text" id="hoay-text-color" class="hoay-color" name="hoay_settings[text_color]" value="<?php echo esc_attr( $options['text_color'] ); ?>" /></td>
 			</tr>
 			<tr>
+				<th scope="row"><label for="hoay-text-align"><?php esc_html_e( 'Text alignment', 'how-old-are-you' ); ?></label></th>
+				<td>
+					<select id="hoay-text-align" name="hoay_settings[text_align]">
+						<?php foreach ( array( 'left', 'center', 'right' ) as $option ) : ?>
+							<option value="<?php echo esc_attr( $option ); ?>" <?php selected( $option, $options['text_align'] ); ?>><?php echo esc_html( $option ); ?></option>
+						<?php endforeach; ?>
+					</select>
+				</td>
+			</tr>
+		</table>
+
+		<h2 class="title"><?php esc_html_e( 'Appearance — Controls', 'how-old-are-you' ); ?></h2>
+		<table class="form-table" role="presentation">
+			<tr>
 				<th scope="row"><label for="hoay-accent-color"><?php esc_html_e( 'Accent color', 'how-old-are-you' ); ?></label></th>
 				<td><input type="text" id="hoay-accent-color" class="hoay-color" name="hoay_settings[accent_color]" value="<?php echo esc_attr( $options['accent_color'] ); ?>" /></td>
 			</tr>
 			<tr>
+				<th scope="row"><label for="hoay-button-radius"><?php esc_html_e( 'Button border radius (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-button-radius" name="hoay_settings[button_radius_px]" min="0" max="32" step="1" value="<?php echo esc_attr( (string) $options['button_radius_px'] ); ?>" /></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hoay-input-radius"><?php esc_html_e( 'Input border radius (px)', 'how-old-are-you' ); ?></label></th>
+				<td><input type="number" id="hoay-input-radius" name="hoay_settings[input_radius_px]" min="0" max="32" step="1" value="<?php echo esc_attr( (string) $options['input_radius_px'] ); ?>" /></td>
+			</tr>
+		</table>
+
+		<h2 class="title"><?php esc_html_e( 'Appearance — Custom CSS', 'how-old-are-you' ); ?></h2>
+		<table class="form-table" role="presentation">
+			<tr>
 				<th scope="row"><label for="hoay-custom-css"><?php esc_html_e( 'Custom CSS', 'how-old-are-you' ); ?></label></th>
 				<td>
-					<textarea id="hoay-custom-css" name="hoay_settings[custom_css]" rows="6" class="large-text code"><?php echo esc_textarea( $options['custom_css'] ); ?></textarea>
-					<p class="description"><?php esc_html_e( 'Scoped to the verification overlay. Tags and obvious script sequences are stripped on save.', 'how-old-are-you' ); ?></p>
+					<textarea id="hoay-custom-css" name="hoay_settings[custom_css]" rows="8" class="large-text code"><?php echo esc_textarea( $options['custom_css'] ); ?></textarea>
+					<p class="description">
+						<?php esc_html_e( 'Scoped to the verification overlay. Tags and obvious script sequences are stripped on save. The following CSS variables are available:', 'how-old-are-you' ); ?>
+						<code>--hoay-bg</code>, <code>--hoay-panel</code>, <code>--hoay-text</code>, <code>--hoay-accent</code>,
+						<code>--hoay-opacity</code>, <code>--hoay-blur</code>,
+						<code>--hoay-panel-width</code>, <code>--hoay-panel-padding</code>, <code>--hoay-panel-radius</code>,
+						<code>--hoay-button-radius</code>, <code>--hoay-input-radius</code>,
+						<code>--hoay-font-size</code>, <code>--hoay-heading-size</code>,
+						<code>--hoay-text-align</code>, <code>--hoay-logo-max</code>, <code>--hoay-bg-size</code>.
+					</p>
 				</td>
 			</tr>
 		</table>
