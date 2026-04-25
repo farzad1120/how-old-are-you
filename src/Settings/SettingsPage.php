@@ -209,14 +209,6 @@ final class SettingsPage {
 
 		$out['seo_bot_bypass']      = Sanitizer::bool( isset( $input['seo_bot_bypass'] ) ? $input['seo_bot_bypass'] : false );
 		$out['seo_bot_user_agents'] = Sanitizer::user_agent_list( isset( $input['seo_bot_user_agents'] ) ? $input['seo_bot_user_agents'] : '' );
-		$out['seo_robots_meta']     = Sanitizer::robots_meta( isset( $input['seo_robots_meta'] ) ? $input['seo_robots_meta'] : $defaults['seo_robots_meta'] );
-		if ( '' === $out['seo_robots_meta'] ) {
-			$out['seo_robots_meta'] = $defaults['seo_robots_meta'];
-		}
-		$out['seo_canonical_to_request'] = Sanitizer::bool( isset( $input['seo_canonical_to_request'] ) ? $input['seo_canonical_to_request'] : false );
-		$out['seo_inherit_open_graph']   = Sanitizer::bool( isset( $input['seo_inherit_open_graph'] ) ? $input['seo_inherit_open_graph'] : false );
-		$out['seo_meta_description']     = Sanitizer::textarea( isset( $input['seo_meta_description'] ) ? $input['seo_meta_description'] : '' );
-		$out['seo_og_image_id']          = Sanitizer::attachment_id( isset( $input['seo_og_image_id'] ) ? $input['seo_og_image_id'] : 0 );
 
 		return $out;
 	}

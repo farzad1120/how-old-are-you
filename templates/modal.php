@@ -45,46 +45,13 @@ $submit_label = Options::interpolate_age( (string) $options['submit_label'] );
 $reject_head  = Options::interpolate_age( (string) $options['rejection_heading'] );
 $reject_body  = Options::interpolate_age( (string) $options['rejection_body'] );
 $custom_css   = (string) $options['custom_css'];
-$seo          = isset( $seo ) && is_array( $seo ) ? $seo : array();
 ?><!DOCTYPE html>
 <html lang="<?php echo esc_attr( $lang ); ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<?php if ( ! empty( $seo['robots'] ) ) : ?>
-		<meta name="robots" content="<?php echo esc_attr( $seo['robots'] ); ?>" />
-	<?php endif; ?>
-	<title><?php echo esc_html( ! empty( $seo['page_title'] ) ? $seo['page_title'] : ( $heading . ' — ' . $site_name ) ); ?></title>
-	<?php if ( ! empty( $seo['description'] ) ) : ?>
-		<meta name="description" content="<?php echo esc_attr( $seo['description'] ); ?>" />
-	<?php endif; ?>
-	<?php if ( ! empty( $seo['canonical'] ) ) : ?>
-		<link rel="canonical" href="<?php echo esc_url( $seo['canonical'] ); ?>" />
-	<?php endif; ?>
-	<?php if ( ! empty( $seo['og_title'] ) ) : ?>
-		<meta property="og:title" content="<?php echo esc_attr( $seo['og_title'] ); ?>" />
-	<?php endif; ?>
-	<?php if ( ! empty( $seo['description'] ) ) : ?>
-		<meta property="og:description" content="<?php echo esc_attr( $seo['description'] ); ?>" />
-	<?php endif; ?>
-	<?php if ( ! empty( $seo['og_url'] ) ) : ?>
-		<meta property="og:url" content="<?php echo esc_url( $seo['og_url'] ); ?>" />
-	<?php endif; ?>
-	<?php if ( ! empty( $seo['og_type'] ) ) : ?>
-		<meta property="og:type" content="<?php echo esc_attr( $seo['og_type'] ); ?>" />
-	<?php endif; ?>
-	<meta property="og:site_name" content="<?php echo esc_attr( $site_name ); ?>" />
-	<?php if ( ! empty( $seo['og_image'] ) ) : ?>
-		<meta property="og:image" content="<?php echo esc_url( $seo['og_image'] ); ?>" />
-		<meta name="twitter:image" content="<?php echo esc_url( $seo['og_image'] ); ?>" />
-	<?php endif; ?>
-	<meta name="twitter:card" content="summary_large_image" />
-	<?php if ( ! empty( $seo['og_title'] ) ) : ?>
-		<meta name="twitter:title" content="<?php echo esc_attr( $seo['og_title'] ); ?>" />
-	<?php endif; ?>
-	<?php if ( ! empty( $seo['description'] ) ) : ?>
-		<meta name="twitter:description" content="<?php echo esc_attr( $seo['description'] ); ?>" />
-	<?php endif; ?>
+	<meta name="robots" content="noindex,nofollow" />
+	<title><?php echo esc_html( $heading . ' — ' . $site_name ); ?></title>
 	<link rel="stylesheet" href="<?php echo esc_url( $assets . 'css/frontend.css?ver=' . rawurlencode( $css_ver ) ); ?>" />
 	<style id="hoay-vars">
 		.hoay-overlay { <?php echo str_replace( array( '</style', '</STYLE' ), '', $css_vars ); ?> }

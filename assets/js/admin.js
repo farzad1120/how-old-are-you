@@ -16,8 +16,7 @@
 
 		var idByTarget = {
 			'logo':     '#hoay-logo-id',
-			'bg-image': '#hoay-bg-image-id',
-			'og-image': '#hoay-og-image-id'
+			'bg-image': '#hoay-bg-image-id'
 		};
 
 		function targetForButton( $button ) {

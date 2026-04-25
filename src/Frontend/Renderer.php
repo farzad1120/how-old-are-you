@@ -50,7 +50,6 @@ final class Renderer {
 		$months      = self::localized_months();
 		$year_max    = (int) current_time( 'Y' );
 		$year_min    = $year_max - 120;
-		$seo         = self::seo_data( $options );
 
 		Template::render(
 			'modal.php',
@@ -73,73 +72,7 @@ final class Renderer {
 				'months'      => $months,
 				'year_max'    => $year_max,
 				'year_min'    => $year_min,
-				'seo'         => $seo,
 			)
-		);
-	}
-
-	/**
-	 * Build the SEO data passed to the overlay template.
-	 *
-	 * Resolves the requested URL, robots meta, canonical URL, and
-	 * Open-Graph / Twitter-Card values. When inheritance is on and a
-	 * post or term has resolved, og:title / og:image are derived from it.
-	 *
-	 * @param array<string,mixed> $options Settings.
-	 * @return array<string,string>
-	 */
-	public static function seo_data( array $options ) {
-		$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '/'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$canonical   = ! empty( $options['seo_canonical_to_request'] ) ? home_url( $request_uri ) : '';
-		$robots      = (string) ( $options['seo_robots_meta'] ?? 'noindex,nofollow' );
-		$site_name   = (string) get_bloginfo( 'name' );
-		$heading     = Options::interpolate_age( (string) ( $options['heading_text'] ?? '' ) );
-		$page_title  = '' !== trim( $heading ) ? $heading . ' — ' . $site_name : $site_name;
-
-		$description = (string) ( $options['seo_meta_description'] ?? '' );
-		if ( '' === trim( $description ) ) {
-			$description = Options::interpolate_age( (string) ( $options['body_text'] ?? '' ) );
-		}
-
-		$og_image_url = '';
-		$og_image_id  = (int) ( $options['seo_og_image_id'] ?? 0 );
-		if ( $og_image_id > 0 ) {
-			$og_image_url = (string) wp_get_attachment_image_url( $og_image_id, 'large' );
-		}
-
-		$og_title = $page_title;
-		$og_type  = 'website';
-
-		if ( ! empty( $options['seo_inherit_open_graph'] ) ) {
-			$queried = function_exists( 'get_queried_object' ) ? get_queried_object() : null;
-
-			if ( $queried instanceof \WP_Post ) {
-				$post_title = wp_strip_all_tags( get_the_title( $queried ) );
-				if ( '' !== $post_title ) {
-					$og_title = $post_title . ' — ' . $site_name;
-				}
-				if ( '' === $og_image_url ) {
-					$thumb = (string) get_the_post_thumbnail_url( $queried, 'large' );
-					if ( '' !== $thumb ) {
-						$og_image_url = $thumb;
-					}
-				}
-				$og_type = 'article';
-			} elseif ( $queried instanceof \WP_Term ) {
-				$og_title = wp_strip_all_tags( $queried->name ) . ' — ' . $site_name;
-				$og_type  = 'website';
-			}
-		}
-
-		return array(
-			'canonical'   => $canonical,
-			'robots'      => $robots,
-			'page_title'  => $page_title,
-			'description' => trim( $description ),
-			'og_title'    => $og_title,
-			'og_type'     => $og_type,
-			'og_image'    => $og_image_url,
-			'og_url'      => '' !== $canonical ? $canonical : home_url( '/' ),
 		);
 	}
 

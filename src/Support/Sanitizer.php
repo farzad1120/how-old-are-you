@@ -200,31 +200,6 @@ final class Sanitizer {
 	}
 
 	/**
-	 * Sanitize a robots meta value.
-	 *
-	 * Accepts comma- or space-separated tokens from the standard set
-	 * (`index`, `noindex`, `follow`, `nofollow`, `noarchive`, `nosnippet`,
-	 * `noimageindex`, `none`, `all`). Anything else is stripped. Returns
-	 * an empty string if no valid token remains.
-	 *
-	 * @param mixed $value Raw input.
-	 * @return string
-	 */
-	public static function robots_meta( $value ) {
-		$value   = is_scalar( $value ) ? (string) $value : '';
-		$allowed = array( 'index', 'noindex', 'follow', 'nofollow', 'noarchive', 'nosnippet', 'noimageindex', 'none', 'all' );
-		$tokens  = preg_split( '/[\s,]+/', strtolower( $value ) );
-		$out     = array();
-		foreach ( (array) $tokens as $token ) {
-			$token = trim( (string) $token );
-			if ( '' !== $token && in_array( $token, $allowed, true ) ) {
-				$out[] = $token;
-			}
-		}
-		return implode( ',', array_unique( $out ) );
-	}
-
-	/**
 	 * Sanitize a list of user-agent tokens (one per line).
 	 *
 	 * Each non-empty line is stripped of control characters and trimmed.
