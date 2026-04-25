@@ -30,18 +30,18 @@ final class Renderer {
 		status_header( 200 );
 		header( 'Content-Type: text/html; charset=' . get_bloginfo( 'charset' ) );
 
-		$options   = Options::all();
-		$min_age   = (int) $options['minimum_age'];
-		$mode      = (string) $options['verification_mode'];
-		$logo_url  = $options['logo_attachment_id']
+		$options  = Options::all();
+		$min_age  = (int) $options['minimum_age'];
+		$mode     = (string) $options['verification_mode'];
+		$logo_url = $options['logo_attachment_id']
 			? (string) wp_get_attachment_image_url( (int) $options['logo_attachment_id'], 'medium' )
 			: '';
-		$nonce     = wp_create_nonce( 'hoay_verify' );
-		$ajax_url  = admin_url( 'admin-ajax.php' );
-		$max_dob   = current_time( 'Y-m-d' );
-		$min_dob   = (string) gmdate( 'Y-m-d', strtotime( '-120 years' ) );
-		$assets    = HOAY_PLUGIN_URL . 'assets/';
-		$css_ver   = HOAY_VERSION;
+		$nonce    = wp_create_nonce( 'hoay_verify' );
+		$ajax_url = admin_url( 'admin-ajax.php' );
+		$max_dob  = current_time( 'Y-m-d' );
+		$min_dob  = (string) gmdate( 'Y-m-d', strtotime( '-120 years' ) );
+		$assets   = HOAY_PLUGIN_URL . 'assets/';
+		$css_ver  = HOAY_VERSION;
 
 		Template::render(
 			'modal.php',

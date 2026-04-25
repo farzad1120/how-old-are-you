@@ -23,6 +23,15 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// This template renders a standalone HTML document (not a theme page),
+// so wp_enqueue_style/script aren't applicable here — the link/script
+// tags are emitted directly. The custom-CSS block is sanitised on save
+// by HOAY\Support\Sanitizer::css() and intentionally allows admin-supplied
+// CSS through wp_strip_all_tags only.
+// phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+// phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript
+// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+
 use HOAY\Frontend\Renderer;
 use HOAY\Settings\Options;
 
@@ -44,7 +53,11 @@ $custom_css   = (string) $options['custom_css'];
 	<meta name="robots" content="noindex,nofollow" />
 	<title><?php echo esc_html( $heading . ' — ' . $site_name ); ?></title>
 	<link rel="stylesheet" href="<?php echo esc_url( $assets . 'css/frontend.css?ver=' . rawurlencode( $css_ver ) ); ?>" />
-	<style id="hoay-vars">.hoay-overlay { <?php echo esc_html( $css_vars ); ?> }<?php if ( '' !== $custom_css ) : ?> <?php echo wp_strip_all_tags( $custom_css ); // Sanitised in Sanitizer::css. ?> <?php endif; ?></style>
+	<style id="hoay-vars">.hoay-overlay { <?php echo esc_html( $css_vars ); ?> }
+	<?php
+	if ( '' !== $custom_css ) :
+		?>
+		<?php echo wp_strip_all_tags( $custom_css ); // Sanitised in Sanitizer::css. ?> <?php endif; ?></style>
 </head>
 <body class="hoay-body">
 	<div class="hoay-overlay" role="dialog" aria-modal="true" aria-labelledby="hoay-heading">

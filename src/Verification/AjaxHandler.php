@@ -131,10 +131,12 @@ final class AjaxHandler {
 	 * @return array{passed:bool, reason?:string, message:string}
 	 */
 	private function verify_confirm() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing
+		// Nonce is verified at the top of handle() via check_ajax_referer().
+		// phpcs:disable WordPress.Security.NonceVerification.Missing
 		$choice = isset( $_POST['confirm'] )
 			? sanitize_text_field( wp_unslash( $_POST['confirm'] ) )
 			: '';
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 
 		if ( 'yes' === $choice ) {
 			return array(

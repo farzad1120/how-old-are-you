@@ -17,10 +17,10 @@ delete_option( 'hoay_version' );
 if ( is_multisite() ) {
 	$site_ids = get_sites(
 		array(
-			'fields'    => 'ids',
-			'number'    => 0,
-			'update_site_cache'         => false,
-			'update_site_meta_cache'    => false,
+			'fields'                 => 'ids',
+			'number'                 => 0,
+			'update_site_cache'      => false,
+			'update_site_meta_cache' => false,
 		)
 	);
 

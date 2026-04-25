@@ -113,6 +113,7 @@ final class Sanitizer {
 		if ( function_exists( 'sanitize_text_field' ) ) {
 			return sanitize_text_field( $value );
 		}
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.strip_tags_strip_tags -- WP function not available in unit-test fallback path.
 		return trim( strip_tags( $value ) );
 	}
 
@@ -127,6 +128,7 @@ final class Sanitizer {
 		if ( function_exists( 'sanitize_textarea_field' ) ) {
 			return sanitize_textarea_field( $value );
 		}
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.strip_tags_strip_tags -- WP function not available in unit-test fallback path.
 		return trim( strip_tags( $value ) );
 	}
 
