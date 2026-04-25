@@ -83,15 +83,31 @@
 			} );
 	}
 
+	function readDobFromSelects() {
+		var d = document.getElementById( 'hoay-dob-day' );
+		var m = document.getElementById( 'hoay-dob-month' );
+		var y = document.getElementById( 'hoay-dob-year' );
+		if ( ! d || ! m || ! y ) return '';
+		if ( ! d.value || ! m.value || ! y.value ) return '';
+		var pad = function ( n ) { n = String( n ); return n.length < 2 ? '0' + n : n; };
+		return y.value + '-' + pad( m.value ) + '-' + pad( d.value );
+	}
+
 	form.addEventListener( 'submit', function ( e ) {
 		e.preventDefault();
 
 		if ( mode === 'dob' ) {
-			if ( ! dobInput || ! dobInput.value ) {
+			var dob = '';
+			if ( document.querySelector( '.hoay-dob-selects' ) ) {
+				dob = readDobFromSelects();
+			} else if ( dobInput ) {
+				dob = dobInput.value;
+			}
+			if ( ! dob ) {
 				showError( 'Please enter your date of birth.' );
 				return;
 			}
-			postVerify( { dob: dobInput.value }, submit );
+			postVerify( { dob: dob }, submit );
 			return;
 		}
 

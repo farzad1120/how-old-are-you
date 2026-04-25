@@ -80,13 +80,44 @@ $custom_css   = (string) $options['custom_css'];
 					data-nonce="<?php echo esc_attr( $nonce ); ?>">
 
 					<?php if ( 'dob' === $mode ) : ?>
-						<label for="hoay-dob" class="hoay-label"><?php echo esc_html( $dob_label ); ?></label>
-						<input type="date" id="hoay-dob" name="dob"
-							required
-							min="<?php echo esc_attr( $min_dob ); ?>"
-							max="<?php echo esc_attr( $max_dob ); ?>"
-							class="hoay-input"
-							autocomplete="bday" />
+						<label for="hoay-dob" class="hoay-label">
+							<?php echo esc_html( $dob_label ); ?>
+							<?php if ( '' !== $format_hint ) : ?>
+								<span class="hoay-format-hint"><?php echo esc_html( $format_hint ); ?></span>
+							<?php endif; ?>
+						</label>
+
+						<?php if ( 'selects' === (string) $options['dob_input_style'] ) : ?>
+							<div class="hoay-dob-selects" data-style="selects">
+								<select id="hoay-dob-day" name="dob_day" class="hoay-select" required aria-label="<?php esc_attr_e( 'Day', 'how-old-are-you' ); ?>">
+									<option value=""><?php esc_html_e( 'Day', 'how-old-are-you' ); ?></option>
+									<?php for ( $d = 1; $d <= 31; $d++ ) : ?>
+										<option value="<?php echo esc_attr( (string) $d ); ?>"><?php echo esc_html( (string) $d ); ?></option>
+									<?php endfor; ?>
+								</select>
+								<select id="hoay-dob-month" name="dob_month" class="hoay-select" required aria-label="<?php esc_attr_e( 'Month', 'how-old-are-you' ); ?>">
+									<option value=""><?php esc_html_e( 'Month', 'how-old-are-you' ); ?></option>
+									<?php foreach ( $months as $num => $name ) : ?>
+										<option value="<?php echo esc_attr( (string) $num ); ?>"><?php echo esc_html( $name ); ?></option>
+									<?php endforeach; ?>
+								</select>
+								<select id="hoay-dob-year" name="dob_year" class="hoay-select" required aria-label="<?php esc_attr_e( 'Year', 'how-old-are-you' ); ?>">
+									<option value=""><?php esc_html_e( 'Year', 'how-old-are-you' ); ?></option>
+									<?php for ( $y = (int) $year_max; $y >= (int) $year_min; $y-- ) : ?>
+										<option value="<?php echo esc_attr( (string) $y ); ?>"><?php echo esc_html( (string) $y ); ?></option>
+									<?php endfor; ?>
+								</select>
+							</div>
+						<?php else : ?>
+							<input type="date" id="hoay-dob" name="dob"
+								required
+								min="<?php echo esc_attr( $min_dob ); ?>"
+								max="<?php echo esc_attr( $max_dob ); ?>"
+								class="hoay-input"
+								lang="<?php echo esc_attr( $lang_short ); ?>"
+								autocomplete="bday" />
+						<?php endif; ?>
+
 						<button type="submit" class="hoay-button hoay-button--primary"><?php echo esc_html( $submit_label ); ?></button>
 					<?php else : ?>
 						<div class="hoay-confirm-row">
