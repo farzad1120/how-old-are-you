@@ -1,0 +1,284 @@
+# Persian translation for How Old Are You.
+# Copyright (C) 2026 Farzad Zarasvand
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: How Old Are You 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/farzad1120/how-old-are-you/issues\n"
+"POT-Creation-Date: 2026-04-26T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-04-26 00:00+0000\n"
+"Last-Translator: Farzad Zarasvand <farzad@wedevelop.nl>\n"
+"Language-Team: Persian <fa@li.org>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: how-old-are-you\n"
+
+msgid "Please verify your age"
+msgstr "لطفاً سن خود را تأیید کنید"
+
+msgid "You must be of legal age to enter this site."
+msgstr "برای ورود به این سایت باید به سن قانونی رسیده باشید."
+
+msgid "Date of birth"
+msgstr "تاریخ تولد"
+
+msgid "I am {age} or older"
+msgstr "من {age} ساله یا بیشتر هستم"
+
+msgid "I am under {age}"
+msgstr "من زیر {age} سال دارم"
+
+msgid "Enter site"
+msgstr "ورود به سایت"
+
+msgid "Sorry, you can't enter"
+msgstr "متأسفیم، اجازهٔ ورود ندارید"
+
+msgid "You are not old enough to view this site."
+msgstr "سن شما برای مشاهدهٔ این سایت کافی نیست."
+
+msgid "Day"
+msgstr "روز"
+
+msgid "Month"
+msgstr "ماه"
+
+msgid "Mon"
+msgstr "ماه"
+
+msgid "Year"
+msgstr "سال"
+
+msgid "Verification is disabled."
+msgstr "تأیید سن غیرفعال است."
+
+msgid "Verified. Welcome."
+msgstr "تأیید شد. خوش آمدید."
+
+msgid "Please enter a date of birth."
+msgstr "لطفاً تاریخ تولد را وارد کنید."
+
+msgid "That date of birth doesn't look right."
+msgstr "این تاریخ تولد درست به نظر نمی‌رسد."
+
+msgid "You are not old enough to enter this site."
+msgstr "سن شما برای ورود به این سایت کافی نیست."
+
+msgid "Verified."
+msgstr "تأیید شد."
+
+msgid "Age Verification"
+msgstr "تأیید سن"
+
+msgid "Block under-age visitors from your public site with a customizable verification gate."
+msgstr "بازدیدکنندگان زیر سن قانونی را با یک دروازهٔ تأیید سن قابل سفارشی‌سازی از سایت عمومی خود مسدود کنید."
+
+msgid "Behavior"
+msgstr "رفتار"
+
+msgid "Enable gate"
+msgstr "فعال‌سازی دروازه"
+
+msgid "Block under-age visitors on the public frontend."
+msgstr "مسدود کردن بازدیدکنندگان زیر سن قانونی در فرانت‌اند عمومی."
+
+msgid "Minimum age"
+msgstr "حداقل سن"
+
+msgid "Visitors below this age cannot enter."
+msgstr "بازدیدکنندگان زیر این سن نمی‌توانند وارد شوند."
+
+msgid "Verification mode"
+msgstr "حالت تأیید"
+
+msgid "Date of birth — calculate age from the entered DOB."
+msgstr "تاریخ تولد — محاسبهٔ سن بر اساس تاریخ تولد واردشده."
+
+msgid "Confirmation — visitor clicks \"I am over X\" / \"I am under X\"."
+msgstr "تأیید — بازدیدکننده روی «بالای X سال هستم» / «زیر X سال هستم» کلیک می‌کند."
+
+msgid "DOB input style"
+msgstr "سبک ورودی تاریخ تولد"
+
+msgid "Native HTML5 date input (browser picker, follows the document language)."
+msgstr "ورودی تاریخ HTML5 بومی (انتخابگر مرورگر، از زبان سند پیروی می‌کند)."
+
+msgid "Site-localized dropdowns (day / month / year — month names always follow the site language)."
+msgstr "فهرست‌های کشویی محلی‌سازی‌شدهٔ سایت (روز / ماه / سال — نام ماه‌ها همیشه از زبان سایت پیروی می‌کند)."
+
+msgid "Cookie"
+msgstr "کوکی"
+
+msgid "Cookie name"
+msgstr "نام کوکی"
+
+msgid "Cookie lifetime (days)"
+msgstr "طول عمر کوکی (روز)"
+
+msgid "SameSite"
+msgstr "SameSite"
+
+msgid "Messages"
+msgstr "پیام‌ها"
+
+msgid "Use {age} to insert the configured minimum age."
+msgstr "از {age} برای درج حداقل سن پیکربندی‌شده استفاده کنید."
+
+msgid "Heading"
+msgstr "سرتیتر"
+
+msgid "Body text"
+msgstr "متن اصلی"
+
+msgid "DOB field label"
+msgstr "برچسب فیلد تاریخ تولد"
+
+msgid "\"Over X\" button label"
+msgstr "برچسب دکمهٔ «بالای X»"
+
+msgid "\"Under X\" button label"
+msgstr "برچسب دکمهٔ «زیر X»"
+
+msgid "Submit button label"
+msgstr "برچسب دکمهٔ ارسال"
+
+msgid "Rejection heading"
+msgstr "سرتیتر رد کردن"
+
+msgid "Rejection body"
+msgstr "متن رد کردن"
+
+msgid "Appearance — Logo"
+msgstr "ظاهر — لوگو"
+
+msgid "Logo"
+msgstr "لوگو"
+
+msgid "No logo selected"
+msgstr "هیچ لوگویی انتخاب نشده است"
+
+msgid "Choose image"
+msgstr "انتخاب تصویر"
+
+msgid "Choose a verification screen logo"
+msgstr "یک لوگو برای صفحهٔ تأیید سن انتخاب کنید"
+
+msgid "Use this image"
+msgstr "استفاده از این تصویر"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Logo max width (px)"
+msgstr "حداکثر عرض لوگو (پیکسل)"
+
+msgid "Appearance — Background"
+msgstr "ظاهر — پس‌زمینه"
+
+msgid "Background color"
+msgstr "رنگ پس‌زمینه"
+
+msgid "Background image"
+msgstr "تصویر پس‌زمینه"
+
+msgid "No background image selected"
+msgstr "هیچ تصویر پس‌زمینه‌ای انتخاب نشده است"
+
+msgid "Background image size"
+msgstr "اندازهٔ تصویر پس‌زمینه"
+
+msgid "Overlay opacity"
+msgstr "شفافیت روی‌هم‌گذاری"
+
+msgid "Backdrop blur (px)"
+msgstr "محوشدگی پس‌زمینه (پیکسل)"
+
+msgid "Frosted-glass effect over the background. Set to 0 to disable."
+msgstr "افکت شیشهٔ مات روی پس‌زمینه. برای غیرفعال‌سازی روی ۰ تنظیم کنید."
+
+msgid "Appearance — Panel"
+msgstr "ظاهر — پنل"
+
+msgid "Panel color"
+msgstr "رنگ پنل"
+
+msgid "Panel width (px)"
+msgstr "عرض پنل (پیکسل)"
+
+msgid "Panel padding (px)"
+msgstr "حاشیهٔ داخلی پنل (پیکسل)"
+
+msgid "Panel border radius (px)"
+msgstr "شعاع گوشهٔ پنل (پیکسل)"
+
+msgid "Appearance — Typography"
+msgstr "ظاهر — تایپوگرافی"
+
+msgid "Font family"
+msgstr "خانوادهٔ قلم"
+
+msgid "CSS font stack. Leave empty to inherit a system default. Quotes, commas, hyphens, and spaces only."
+msgstr "پشتهٔ قلم CSS. برای استفاده از پیش‌فرض سیستم خالی بگذارید. فقط گیومه، ویرگول، خط تیره و فاصله مجاز است."
+
+msgid "Body font size (px)"
+msgstr "اندازهٔ قلم متن اصلی (پیکسل)"
+
+msgid "Heading font size (px)"
+msgstr "اندازهٔ قلم سرتیتر (پیکسل)"
+
+msgid "Text color"
+msgstr "رنگ متن"
+
+msgid "Text alignment"
+msgstr "تراز متن"
+
+msgid "Appearance — Controls"
+msgstr "ظاهر — کنترل‌ها"
+
+msgid "Accent color"
+msgstr "رنگ تأکیدی"
+
+msgid "Button border radius (px)"
+msgstr "شعاع گوشهٔ دکمه (پیکسل)"
+
+msgid "Input border radius (px)"
+msgstr "شعاع گوشهٔ فیلد ورودی (پیکسل)"
+
+msgid "Appearance — Custom CSS"
+msgstr "ظاهر — CSS سفارشی"
+
+msgid "Custom CSS"
+msgstr "CSS سفارشی"
+
+msgid "Scoped to the verification overlay. Tags and obvious script sequences are stripped on save. The following CSS variables are available:"
+msgstr "محدود به پوشش تأیید سن. تگ‌ها و دنباله‌های اسکریپت آشکار هنگام ذخیره حذف می‌شوند. متغیرهای CSS زیر در دسترس هستند:"
+
+msgid "Crawlers"
+msgstr "خزنده‌ها"
+
+msgid "Let search engines and social-media unfurlers see the real page so the site can be indexed and link previews work. The age gate stays in place for human visitors."
+msgstr "به موتورهای جست‌وجو و پیش‌نمایش‌گرهای شبکه‌های اجتماعی اجازه دهید صفحهٔ واقعی را ببینند تا سایت ایندکس شود و پیش‌نمایش لینک‌ها کار کند. دروازهٔ تأیید سن برای بازدیدکنندگان انسانی فعال می‌ماند."
+
+msgid "Bypass for crawlers"
+msgstr "عبور برای خزنده‌ها"
+
+msgid "Allow known search engines and social-media unfurlers to see the real page."
+msgstr "اجازه دهید موتورهای جست‌وجو و پیش‌نمایش‌گرهای شناخته‌شدهٔ شبکه‌های اجتماعی صفحهٔ واقعی را ببینند."
+
+msgid "Crawler user agents"
+msgstr "User agentهای خزنده‌ها"
+
+msgid "One token per line, case-insensitive substring match. Leave blank to use the built-in defaults:"
+msgstr "هر شناسه در یک خط، تطابق زیررشته‌ای بدون حساسیت به حروف. برای استفاده از پیش‌فرض‌های داخلی خالی بگذارید:"
+
+msgid "Exclusions"
+msgstr "استثناها"
+
+msgid "Excluded paths"
+msgstr "مسیرهای مستثنا"
+
+msgid "One path per line. Paths starting with the listed value bypass the gate (e.g. /privacy, /contact)."
+msgstr "هر مسیر در یک خط. مسیرهایی که با مقدار فهرست‌شده شروع می‌شوند از دروازه عبور می‌کنند (مثلاً /privacy، /contact)."

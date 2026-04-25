@@ -1,0 +1,284 @@
+# Italian translation for How Old Are You.
+# Copyright (C) 2026 Farzad Zarasvand
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: How Old Are You 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/farzad1120/how-old-are-you/issues\n"
+"POT-Creation-Date: 2026-04-26T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-04-26 00:00+0000\n"
+"Last-Translator: Farzad Zarasvand <farzad@wedevelop.nl>\n"
+"Language-Team: Italian <it@li.org>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: how-old-are-you\n"
+
+msgid "Please verify your age"
+msgstr "Verifica la tua età"
+
+msgid "You must be of legal age to enter this site."
+msgstr "Devi essere maggiorenne per accedere a questo sito."
+
+msgid "Date of birth"
+msgstr "Data di nascita"
+
+msgid "I am {age} or older"
+msgstr "Ho {age} anni o più"
+
+msgid "I am under {age}"
+msgstr "Ho meno di {age} anni"
+
+msgid "Enter site"
+msgstr "Entra nel sito"
+
+msgid "Sorry, you can't enter"
+msgstr "Spiacenti, accesso negato"
+
+msgid "You are not old enough to view this site."
+msgstr "Non hai l’età richiesta per visualizzare questo sito."
+
+msgid "Day"
+msgstr "Giorno"
+
+msgid "Month"
+msgstr "Mese"
+
+msgid "Mon"
+msgstr "Mese"
+
+msgid "Year"
+msgstr "Anno"
+
+msgid "Verification is disabled."
+msgstr "La verifica è disattivata."
+
+msgid "Verified. Welcome."
+msgstr "Verificato. Benvenuto."
+
+msgid "Please enter a date of birth."
+msgstr "Inserisci una data di nascita."
+
+msgid "That date of birth doesn't look right."
+msgstr "Questa data di nascita non sembra valida."
+
+msgid "You are not old enough to enter this site."
+msgstr "Non hai l’età richiesta per accedere a questo sito."
+
+msgid "Verified."
+msgstr "Verificato."
+
+msgid "Age Verification"
+msgstr "Verifica età"
+
+msgid "Block under-age visitors from your public site with a customizable verification gate."
+msgstr "Blocca i visitatori minorenni dal tuo sito pubblico con una verifica età personalizzabile."
+
+msgid "Behavior"
+msgstr "Comportamento"
+
+msgid "Enable gate"
+msgstr "Attiva la verifica"
+
+msgid "Block under-age visitors on the public frontend."
+msgstr "Blocca i visitatori minorenni sul frontend pubblico."
+
+msgid "Minimum age"
+msgstr "Età minima"
+
+msgid "Visitors below this age cannot enter."
+msgstr "I visitatori al di sotto di questa età non possono accedere."
+
+msgid "Verification mode"
+msgstr "Modalità di verifica"
+
+msgid "Date of birth — calculate age from the entered DOB."
+msgstr "Data di nascita — calcola l’età dalla data inserita."
+
+msgid "Confirmation — visitor clicks \"I am over X\" / \"I am under X\"."
+msgstr "Conferma — il visitatore clicca su «Ho più di X» / «Ho meno di X»."
+
+msgid "DOB input style"
+msgstr "Stile del campo data di nascita"
+
+msgid "Native HTML5 date input (browser picker, follows the document language)."
+msgstr "Campo data HTML5 nativo (selettore del browser, segue la lingua del documento)."
+
+msgid "Site-localized dropdowns (day / month / year — month names always follow the site language)."
+msgstr "Menu a discesa localizzati (giorno / mese / anno — i nomi dei mesi seguono sempre la lingua del sito)."
+
+msgid "Cookie"
+msgstr "Cookie"
+
+msgid "Cookie name"
+msgstr "Nome del cookie"
+
+msgid "Cookie lifetime (days)"
+msgstr "Durata del cookie (giorni)"
+
+msgid "SameSite"
+msgstr "SameSite"
+
+msgid "Messages"
+msgstr "Messaggi"
+
+msgid "Use {age} to insert the configured minimum age."
+msgstr "Usa {age} per inserire l’età minima configurata."
+
+msgid "Heading"
+msgstr "Titolo"
+
+msgid "Body text"
+msgstr "Testo principale"
+
+msgid "DOB field label"
+msgstr "Etichetta del campo data di nascita"
+
+msgid "\"Over X\" button label"
+msgstr "Etichetta del pulsante «Maggiore di X»"
+
+msgid "\"Under X\" button label"
+msgstr "Etichetta del pulsante «Minore di X»"
+
+msgid "Submit button label"
+msgstr "Etichetta del pulsante di invio"
+
+msgid "Rejection heading"
+msgstr "Titolo di rifiuto"
+
+msgid "Rejection body"
+msgstr "Testo di rifiuto"
+
+msgid "Appearance — Logo"
+msgstr "Aspetto — Logo"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "No logo selected"
+msgstr "Nessun logo selezionato"
+
+msgid "Choose image"
+msgstr "Scegli immagine"
+
+msgid "Choose a verification screen logo"
+msgstr "Scegli un logo per la schermata di verifica"
+
+msgid "Use this image"
+msgstr "Usa questa immagine"
+
+msgid "Remove"
+msgstr "Rimuovi"
+
+msgid "Logo max width (px)"
+msgstr "Larghezza massima del logo (px)"
+
+msgid "Appearance — Background"
+msgstr "Aspetto — Sfondo"
+
+msgid "Background color"
+msgstr "Colore di sfondo"
+
+msgid "Background image"
+msgstr "Immagine di sfondo"
+
+msgid "No background image selected"
+msgstr "Nessuna immagine di sfondo selezionata"
+
+msgid "Background image size"
+msgstr "Dimensione dell’immagine di sfondo"
+
+msgid "Overlay opacity"
+msgstr "Opacità della sovrapposizione"
+
+msgid "Backdrop blur (px)"
+msgstr "Sfocatura dello sfondo (px)"
+
+msgid "Frosted-glass effect over the background. Set to 0 to disable."
+msgstr "Effetto vetro smerigliato sopra lo sfondo. Imposta 0 per disattivare."
+
+msgid "Appearance — Panel"
+msgstr "Aspetto — Pannello"
+
+msgid "Panel color"
+msgstr "Colore del pannello"
+
+msgid "Panel width (px)"
+msgstr "Larghezza del pannello (px)"
+
+msgid "Panel padding (px)"
+msgstr "Padding del pannello (px)"
+
+msgid "Panel border radius (px)"
+msgstr "Raggio degli angoli del pannello (px)"
+
+msgid "Appearance — Typography"
+msgstr "Aspetto — Tipografia"
+
+msgid "Font family"
+msgstr "Famiglia di caratteri"
+
+msgid "CSS font stack. Leave empty to inherit a system default. Quotes, commas, hyphens, and spaces only."
+msgstr "Stack di font CSS. Lascia vuoto per ereditare il valore predefinito di sistema. Solo virgolette, virgole, trattini e spazi."
+
+msgid "Body font size (px)"
+msgstr "Dimensione del testo principale (px)"
+
+msgid "Heading font size (px)"
+msgstr "Dimensione del titolo (px)"
+
+msgid "Text color"
+msgstr "Colore del testo"
+
+msgid "Text alignment"
+msgstr "Allineamento del testo"
+
+msgid "Appearance — Controls"
+msgstr "Aspetto — Controlli"
+
+msgid "Accent color"
+msgstr "Colore d’accento"
+
+msgid "Button border radius (px)"
+msgstr "Raggio degli angoli del pulsante (px)"
+
+msgid "Input border radius (px)"
+msgstr "Raggio degli angoli del campo (px)"
+
+msgid "Appearance — Custom CSS"
+msgstr "Aspetto — CSS personalizzato"
+
+msgid "Custom CSS"
+msgstr "CSS personalizzato"
+
+msgid "Scoped to the verification overlay. Tags and obvious script sequences are stripped on save. The following CSS variables are available:"
+msgstr "Limitato alla schermata di verifica. Tag e sequenze di script evidenti vengono rimossi al salvataggio. Sono disponibili le seguenti variabili CSS:"
+
+msgid "Crawlers"
+msgstr "Crawler"
+
+msgid "Let search engines and social-media unfurlers see the real page so the site can be indexed and link previews work. The age gate stays in place for human visitors."
+msgstr "Consenti ai motori di ricerca e ai sistemi di anteprima dei social media di vedere la pagina reale, così il sito può essere indicizzato e le anteprime dei link funzionano. La verifica età resta attiva per i visitatori umani."
+
+msgid "Bypass for crawlers"
+msgstr "Salta verifica per i crawler"
+
+msgid "Allow known search engines and social-media unfurlers to see the real page."
+msgstr "Consenti ai motori di ricerca e alle anteprime dei social media noti di vedere la pagina reale."
+
+msgid "Crawler user agents"
+msgstr "User agent dei crawler"
+
+msgid "One token per line, case-insensitive substring match. Leave blank to use the built-in defaults:"
+msgstr "Un token per riga, confronto di sottostringa senza distinzione di maiuscole. Lascia vuoto per usare i valori predefiniti incorporati:"
+
+msgid "Exclusions"
+msgstr "Esclusioni"
+
+msgid "Excluded paths"
+msgstr "Percorsi esclusi"
+
+msgid "One path per line. Paths starting with the listed value bypass the gate (e.g. /privacy, /contact)."
+msgstr "Un percorso per riga. I percorsi che iniziano con il valore indicato saltano la verifica (es. /privacy, /contact)."

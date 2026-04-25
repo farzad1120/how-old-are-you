@@ -1,0 +1,294 @@
+# Dutch translation for How Old Are You.
+# Copyright (C) 2026 Farzad Zarasvand
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: How Old Are You 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/farzad1120/how-old-are-you/issues\n"
+"POT-Creation-Date: 2026-04-26T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-04-26 00:00+0000\n"
+"Last-Translator: Farzad Zarasvand <farzad@wedevelop.nl>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: how-old-are-you\n"
+
+# Frontend — overlay
+msgid "Please verify your age"
+msgstr "Bevestig uw leeftijd"
+
+msgid "You must be of legal age to enter this site."
+msgstr "U moet meerderjarig zijn om deze site te bezoeken."
+
+msgid "Date of birth"
+msgstr "Geboortedatum"
+
+msgid "I am {age} or older"
+msgstr "Ik ben {age} jaar of ouder"
+
+msgid "I am under {age}"
+msgstr "Ik ben jonger dan {age}"
+
+msgid "Enter site"
+msgstr "Site bezoeken"
+
+msgid "Sorry, you can't enter"
+msgstr "Sorry, u heeft geen toegang"
+
+msgid "You are not old enough to view this site."
+msgstr "U bent niet oud genoeg om deze site te bekijken."
+
+# DOB selects
+msgid "Day"
+msgstr "Dag"
+
+msgid "Month"
+msgstr "Maand"
+
+msgid "Mon"
+msgstr "Maand"
+
+msgid "Year"
+msgstr "Jaar"
+
+# AJAX responses
+msgid "Verification is disabled."
+msgstr "Verificatie is uitgeschakeld."
+
+msgid "Verified. Welcome."
+msgstr "Geverifieerd. Welkom."
+
+msgid "Please enter a date of birth."
+msgstr "Voer een geboortedatum in."
+
+msgid "That date of birth doesn't look right."
+msgstr "Deze geboortedatum lijkt niet te kloppen."
+
+msgid "You are not old enough to enter this site."
+msgstr "U bent niet oud genoeg om toegang te krijgen tot deze site."
+
+msgid "Verified."
+msgstr "Geverifieerd."
+
+# Admin — page
+msgid "Age Verification"
+msgstr "Leeftijdscontrole"
+
+msgid "Block under-age visitors from your public site with a customizable verification gate."
+msgstr "Blokkeer minderjarige bezoekers met een aanpasbare leeftijdscontrole."
+
+# Admin — Behavior
+msgid "Behavior"
+msgstr "Gedrag"
+
+msgid "Enable gate"
+msgstr "Controle inschakelen"
+
+msgid "Block under-age visitors on the public frontend."
+msgstr "Blokkeer minderjarige bezoekers op de openbare site."
+
+msgid "Minimum age"
+msgstr "Minimumleeftijd"
+
+msgid "Visitors below this age cannot enter."
+msgstr "Bezoekers onder deze leeftijd krijgen geen toegang."
+
+msgid "Verification mode"
+msgstr "Verificatiemodus"
+
+msgid "Date of birth — calculate age from the entered DOB."
+msgstr "Geboortedatum — leeftijd berekenen op basis van de ingevoerde geboortedatum."
+
+msgid "Confirmation — visitor clicks \"I am over X\" / \"I am under X\"."
+msgstr "Bevestiging — de bezoeker klikt op \"Ik ben ouder dan X\" / \"Ik ben jonger dan X\"."
+
+msgid "DOB input style"
+msgstr "Stijl van invoerveld geboortedatum"
+
+msgid "Native HTML5 date input (browser picker, follows the document language)."
+msgstr "HTML5-datumveld (browserkiezer, volgt de documenttaal)."
+
+msgid "Site-localized dropdowns (day / month / year — month names always follow the site language)."
+msgstr "Sitespecifieke uitklaplijsten (dag / maand / jaar — maandnamen volgen altijd de sitetaal)."
+
+# Admin — Cookie
+msgid "Cookie"
+msgstr "Cookie"
+
+msgid "Cookie name"
+msgstr "Cookienaam"
+
+msgid "Cookie lifetime (days)"
+msgstr "Cookielevensduur (dagen)"
+
+msgid "SameSite"
+msgstr "SameSite"
+
+# Admin — Messages
+msgid "Messages"
+msgstr "Berichten"
+
+msgid "Use {age} to insert the configured minimum age."
+msgstr "Gebruik {age} om de ingestelde minimumleeftijd in te voegen."
+
+msgid "Heading"
+msgstr "Kop"
+
+msgid "Body text"
+msgstr "Hoofdtekst"
+
+msgid "DOB field label"
+msgstr "Label van geboortedatumveld"
+
+msgid "\"Over X\" button label"
+msgstr "Label van \"Ouder dan X\"-knop"
+
+msgid "\"Under X\" button label"
+msgstr "Label van \"Jonger dan X\"-knop"
+
+msgid "Submit button label"
+msgstr "Label van verzendknop"
+
+msgid "Rejection heading"
+msgstr "Kop bij afwijzing"
+
+msgid "Rejection body"
+msgstr "Tekst bij afwijzing"
+
+# Admin — Appearance
+msgid "Appearance — Logo"
+msgstr "Vormgeving — Logo"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "No logo selected"
+msgstr "Geen logo geselecteerd"
+
+msgid "Choose image"
+msgstr "Afbeelding kiezen"
+
+msgid "Choose a verification screen logo"
+msgstr "Kies een logo voor het verificatiescherm"
+
+msgid "Use this image"
+msgstr "Deze afbeelding gebruiken"
+
+msgid "Remove"
+msgstr "Verwijderen"
+
+msgid "Logo max width (px)"
+msgstr "Maximale logobreedte (px)"
+
+msgid "Appearance — Background"
+msgstr "Vormgeving — Achtergrond"
+
+msgid "Background color"
+msgstr "Achtergrondkleur"
+
+msgid "Background image"
+msgstr "Achtergrondafbeelding"
+
+msgid "No background image selected"
+msgstr "Geen achtergrondafbeelding geselecteerd"
+
+msgid "Background image size"
+msgstr "Grootte achtergrondafbeelding"
+
+msgid "Overlay opacity"
+msgstr "Doorzichtigheid overlay"
+
+msgid "Backdrop blur (px)"
+msgstr "Achtergrondvervaging (px)"
+
+msgid "Frosted-glass effect over the background. Set to 0 to disable."
+msgstr "Mat-glaseffect over de achtergrond. Stel in op 0 om uit te schakelen."
+
+msgid "Appearance — Panel"
+msgstr "Vormgeving — Paneel"
+
+msgid "Panel color"
+msgstr "Paneelkleur"
+
+msgid "Panel width (px)"
+msgstr "Paneelbreedte (px)"
+
+msgid "Panel padding (px)"
+msgstr "Paneelopvulling (px)"
+
+msgid "Panel border radius (px)"
+msgstr "Hoekafronding paneel (px)"
+
+msgid "Appearance — Typography"
+msgstr "Vormgeving — Typografie"
+
+msgid "Font family"
+msgstr "Lettertypefamilie"
+
+msgid "CSS font stack. Leave empty to inherit a system default. Quotes, commas, hyphens, and spaces only."
+msgstr "CSS-lettertypestapel. Leeg laten om de systeemstandaard te erven. Alleen aanhalingstekens, komma's, koppeltekens en spaties."
+
+msgid "Body font size (px)"
+msgstr "Lettergrootte hoofdtekst (px)"
+
+msgid "Heading font size (px)"
+msgstr "Lettergrootte kop (px)"
+
+msgid "Text color"
+msgstr "Tekstkleur"
+
+msgid "Text alignment"
+msgstr "Tekstuitlijning"
+
+msgid "Appearance — Controls"
+msgstr "Vormgeving — Bedieningselementen"
+
+msgid "Accent color"
+msgstr "Accentkleur"
+
+msgid "Button border radius (px)"
+msgstr "Hoekafronding knop (px)"
+
+msgid "Input border radius (px)"
+msgstr "Hoekafronding invoerveld (px)"
+
+msgid "Appearance — Custom CSS"
+msgstr "Vormgeving — Aangepaste CSS"
+
+msgid "Custom CSS"
+msgstr "Aangepaste CSS"
+
+msgid "Scoped to the verification overlay. Tags and obvious script sequences are stripped on save. The following CSS variables are available:"
+msgstr "Beperkt tot de verificatieoverlay. Tags en duidelijke scriptreeksen worden bij opslaan verwijderd. De volgende CSS-variabelen zijn beschikbaar:"
+
+# Admin — Crawlers
+msgid "Crawlers"
+msgstr "Crawlers"
+
+msgid "Let search engines and social-media unfurlers see the real page so the site can be indexed and link previews work. The age gate stays in place for human visitors."
+msgstr "Laat zoekmachines en social-media-unfurlers de echte pagina zien, zodat de site geïndexeerd kan worden en linkvoorbeelden werken. De leeftijdscontrole blijft actief voor menselijke bezoekers."
+
+msgid "Bypass for crawlers"
+msgstr "Omzeilen voor crawlers"
+
+msgid "Allow known search engines and social-media unfurlers to see the real page."
+msgstr "Sta bekende zoekmachines en social-media-unfurlers toe de echte pagina te zien."
+
+msgid "Crawler user agents"
+msgstr "User-agents van crawlers"
+
+msgid "One token per line, case-insensitive substring match. Leave blank to use the built-in defaults:"
+msgstr "Eén token per regel, hoofdletterongevoelige substring-overeenkomst. Laat leeg om de ingebouwde standaardwaarden te gebruiken:"
+
+# Admin — Exclusions
+msgid "Exclusions"
+msgstr "Uitsluitingen"
+
+msgid "Excluded paths"
+msgstr "Uitgesloten paden"
+
+msgid "One path per line. Paths starting with the listed value bypass the gate (e.g. /privacy, /contact)."
+msgstr "Eén pad per regel. Paden die met de opgegeven waarde beginnen omzeilen de controle (bijv. /privacy, /contact)."
