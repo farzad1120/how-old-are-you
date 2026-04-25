@@ -58,7 +58,11 @@ final class Plugin {
 
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 
-		// Subsequent steps (4, 8, 9, 10) will register their hooks here.
+		if ( is_admin() ) {
+			( new Settings\SettingsPage() )->register();
+		}
+
+		// Frontend gate and AJAX handler are wired in subsequent steps.
 	}
 
 	/**

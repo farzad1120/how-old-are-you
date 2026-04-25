@@ -1,0 +1,44 @@
+/* How Old Are You — admin settings styles */
+
+.hoay-settings .title {
+	margin-top: 1.6em;
+	padding-top: 1.2em;
+	border-top: 1px solid #dcdcde;
+}
+
+.hoay-settings .title:first-of-type {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.hoay-media-preview {
+	display: inline-block;
+	min-width: 120px;
+	min-height: 60px;
+	margin: 0 0 8px;
+	padding: 8px;
+	border: 1px dashed #c3c4c7;
+	background: #fff;
+	vertical-align: top;
+}
+
+.hoay-media-preview img {
+	max-width: 200px;
+	max-height: 100px;
+	display: block;
+}
+
+.hoay-media-empty {
+	color: #646970;
+	font-style: italic;
+}
+
+.hoay-media-pick,
+.hoay-media-clear {
+	margin-left: 8px;
+	vertical-align: top;
+}
+
+.hoay-media-pick {
+	margin-top: 8px;
+}
