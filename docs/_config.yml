@@ -1,0 +1,43 @@
+title: How Old Are You
+description: A WordPress age-verification plugin that blocks under-age visitors from your public site.
+remote_theme: just-the-docs/just-the-docs
+url: https://farzad1120.github.io
+baseurl: /how-old-are-you
+
+# Just the Docs theme settings
+color_scheme: dark
+search_enabled: true
+heading_anchors: true
+
+# Top navigation
+aux_links:
+  GitHub:
+    - https://github.com/farzad1120/how-old-are-you
+
+# Footer
+footer_content: 'Copyright &copy; 2026 Farzad Zarasvand. Distributed under the <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GPL-2.0-or-later</a>.'
+
+# Plugins enabled by GitHub Pages.
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Don't process these in the docs site build.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - .jekyll-cache
+  - .sass-cache
+
+# Permalinks: clean URLs, no .html, no date prefix.
+permalink: pretty
+
+# Default frontmatter so authors don't need to repeat layout/etc.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

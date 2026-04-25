@@ -1,7 +1,13 @@
+---
+title: Dev environment
+parent: For developers
+nav_order: 5
+permalink: /developer/dev-environment/
+---
+
 # Development environment
 
-This repo ships a Docker-based dev environment so you can build and exercise
-the plugin without installing PHP or WordPress on your host.
+This repo ships a Docker-based dev environment so you can build and exercise the plugin without installing PHP or WordPress on your host.
 
 ## Prerequisites
 
@@ -13,9 +19,7 @@ the plugin without installing PHP or WordPress on your host.
 docker compose -f docker-compose.dev.yml up -d
 ```
 
-Open <http://localhost:8080> and complete the WordPress install. The plugin is
-auto-mounted at `wp-content/plugins/how-old-are-you/`; activate it under
-**Plugins → Installed Plugins**.
+Open <http://localhost:8080> and complete the WordPress install. The plugin is auto-mounted at `wp-content/plugins/how-old-are-you/`; activate it under **Plugins → Installed Plugins**.
 
 Tear down (including the DB volume):
 
@@ -32,7 +36,7 @@ docker compose -f docker-compose.dev.yml run --rm wpcli wp plugin activate how-o
 
 ## Run Composer / PHPCS / PHPUnit ad hoc
 
-PHP/Composer are not required on the host — use the official images:
+PHP/Composer aren't required on the host — use the official images:
 
 ```sh
 # Install dev dependencies
@@ -50,3 +54,15 @@ Or, with the dev container running, drop into a PHP shell:
 ```sh
 docker compose -f docker-compose.dev.yml exec wordpress bash
 ```
+
+## Build the docs site locally
+
+The docs site under `/docs/` is a Jekyll site using the Just-the-Docs remote theme. To preview locally:
+
+```sh
+cd docs/
+bundle install
+bundle exec jekyll serve --livereload
+```
+
+Then visit <http://localhost:4000>.

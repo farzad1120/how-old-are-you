@@ -1,3 +1,10 @@
+---
+title: Security
+parent: For developers
+nav_order: 4
+permalink: /developer/security/
+---
+
 # Security
 
 ## Threat model
@@ -14,8 +21,7 @@ This plugin is a compliance control, not a DRM system. It assumes the visitor's 
 | **Cross-site request forgery on the verify endpoint** | `check_ajax_referer('hoay_verify')` validates a nonce on every submission. |
 | **Reflected XSS via custom CSS / messages** | All user-facing strings are escaped on render (`esc_html`, `esc_attr`, `esc_url`). Custom CSS is stripped of `<`, `>`, and obvious script sequences on save. |
 | **Stored XSS via settings** | Capability check `manage_options` plus the Settings API's nonce gate every save; values are sanitised through `HOAY\Support\Sanitizer`. |
-| **Open redirect via configurable URL** | The plugin does not redirect on failure (decision in plan): the gate renders the rejection panel in place. |
-| **Bypass via non-public endpoints** | wp-admin, REST, AJAX, cron, XML-RPC, and login are always exempt; the gate never depends on these for state. |
+| **Visitor spoofs a bot UA to bypass the gate** | Same content shown to a verified human is shown to bots; UA-spoofing self-verifies but doesn't expose privileged content. Site owners with strict requirements can disable bot bypass entirely. |
 
 ## Out of scope
 

@@ -1,4 +1,16 @@
+---
+title: Installation
+parent: Getting started
+nav_order: 1
+permalink: /getting-started/installation/
+---
+
 # Installation
+
+## Requirements
+
+- WordPress 6.0 or higher
+- PHP 7.4 or higher
 
 ## From a release zip
 
@@ -12,16 +24,11 @@
 ```sh
 cd wp-content/plugins/
 git clone https://github.com/farzad1120/how-old-are-you.git
-cd how-old-are-you
-# Optional: install dev deps for linting/tests.
-composer install
 ```
 
-The plugin runs without `vendor/` because it ships a PSR-4 fallback autoloader. `vendor/` is only needed for development tooling (PHPCS, PHPUnit).
+The plugin runs without `vendor/` because it ships a PSR-4 fallback autoloader. `composer install` is only needed for development tooling (PHPCS, PHPUnit).
 
-## Composer-managed sites
-
-If your site uses `composer/installers` (Bedrock, Roots, etc.):
+## Composer-managed sites (Bedrock, Roots, …)
 
 ```json
 {
@@ -31,13 +38,7 @@ If your site uses `composer/installers` (Bedrock, Roots, etc.):
 }
 ```
 
-The plugin's `composer.json` declares `type: wordpress-plugin`, so it lands in `wp-content/plugins/how-old-are-you/`.
-
-## Requirements
-
-- WordPress 6.0 or higher.
-- PHP 7.4 or higher.
-- A working `wp-cron` is **not** required.
+The plugin's `composer.json` declares `type: wordpress-plugin`, so it lands in `wp-content/plugins/how-old-are-you/` automatically.
 
 ## Activation behavior
 

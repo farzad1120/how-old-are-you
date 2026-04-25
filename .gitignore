@@ -27,3 +27,11 @@ Thumbs.db
 # Local env
 .env
 .env.local
+
+# Jekyll docs site
+/docs/_site/
+/docs/.jekyll-cache/
+/docs/.sass-cache/
+/docs/.bundle/
+/docs/vendor/
+/docs/Gemfile.lock
