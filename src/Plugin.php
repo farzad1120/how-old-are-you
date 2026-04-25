@@ -64,7 +64,7 @@ final class Plugin {
 			( new Frontend\Gate() )->register();
 		}
 
-		// AJAX handler is wired in step 10.
+		( new Verification\AjaxHandler() )->register();
 	}
 
 	/**
