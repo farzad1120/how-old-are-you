@@ -15,7 +15,7 @@ delete_option( 'hoay_version' );
 
 // Multisite: also clean per-site options on every blog in the network.
 if ( is_multisite() ) {
-	$site_ids = get_sites(
+	$hoay_site_ids = get_sites(
 		array(
 			'fields'                 => 'ids',
 			'number'                 => 0,
@@ -24,8 +24,8 @@ if ( is_multisite() ) {
 		)
 	);
 
-	foreach ( $site_ids as $site_id ) {
-		switch_to_blog( (int) $site_id );
+	foreach ( $hoay_site_ids as $hoay_site_id ) {
+		switch_to_blog( (int) $hoay_site_id );
 		delete_option( 'hoay_settings' );
 		delete_option( 'hoay_version' );
 		restore_current_blog();

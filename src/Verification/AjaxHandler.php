@@ -46,9 +46,10 @@ final class AjaxHandler {
 		}
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing
-		$mode = isset( $_POST['mode'] )
-			? Sanitizer::enum( wp_unslash( $_POST['mode'] ), Sanitizer::VERIFICATION_MODES, (string) Options::get( 'verification_mode' ) )
-			: (string) Options::get( 'verification_mode' );
+		$raw_mode = isset( $_POST['mode'] ) ? sanitize_text_field( wp_unslash( $_POST['mode'] ) ) : '';
+		$mode     = '' === $raw_mode
+			? (string) Options::get( 'verification_mode' )
+			: Sanitizer::enum( $raw_mode, Sanitizer::VERIFICATION_MODES, (string) Options::get( 'verification_mode' ) );
 
 		$result = ( 'dob' === $mode ) ? $this->verify_dob() : $this->verify_confirm();
 

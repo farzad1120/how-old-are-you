@@ -129,11 +129,13 @@ final class CookieManager {
 	 * @return bool
 	 */
 	public static function is_verified( $cookie_name ) {
-		if ( ! isset( $_COOKIE[ $cookie_name ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! isset( $_COOKIE[ $cookie_name ] ) ) {
 			return false;
 		}
-		$raw = wp_unslash( $_COOKIE[ $cookie_name ] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		return self::verify_value( (string) $raw, self::secret() );
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$raw = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
+		return self::verify_value( $raw, self::secret() );
 	}
 
 	/**

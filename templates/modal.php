@@ -31,6 +31,8 @@ defined( 'ABSPATH' ) || exit;
 // phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
 // phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript
 // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+// Variables below are template locals injected via extract() in Template::render() — they're not really global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 use HOAY\Frontend\Renderer;
 use HOAY\Settings\Options;

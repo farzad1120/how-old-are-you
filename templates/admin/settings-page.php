@@ -13,6 +13,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Variables below are template locals injected via extract() in SettingsPage::render() — they're not really global.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 $logo_url     = $options['logo_attachment_id']
 	? (string) wp_get_attachment_image_url( (int) $options['logo_attachment_id'], 'medium' )
 	: '';
