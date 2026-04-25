@@ -8,6 +8,7 @@
 namespace HOAY\Frontend;
 
 use HOAY\Settings\Options;
+use HOAY\Support\BotDetector;
 use HOAY\Verification\CookieManager;
 
 defined( 'ABSPATH' ) || exit;
@@ -98,8 +99,48 @@ final class Gate {
 		if ( $this->path_is_excluded() ) {
 			return true;
 		}
+		if ( $this->is_bypassed_bot() ) {
+			return true;
+		}
 
 		return false;
+	}
+
+	/**
+	 * Whether the request comes from a configured search/social bot.
+	 *
+	 * @return bool
+	 */
+	private function is_bypassed_bot() {
+		if ( ! Options::get( 'seo_bot_bypass' ) ) {
+			return false;
+		}
+
+		$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] )
+			? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) )
+			: '';
+
+		$tokens_raw = (string) Options::get( 'seo_bot_user_agents', '' );
+		$tokens     = '' === trim( $tokens_raw ) ? null : $tokens_raw;
+		$tokens     = BotDetector::normalize_tokens( $tokens );
+
+		/**
+		 * Filter the effective bot-token list before matching.
+		 *
+		 * @param string[] $tokens     Tokens that bypass the gate.
+		 * @param string   $user_agent Current request UA.
+		 */
+		$tokens = (array) apply_filters( 'hoay_bot_tokens', $tokens, $user_agent );
+
+		$is_bot = BotDetector::is_bot( $user_agent, $tokens );
+
+		/**
+		 * Override the bot decision (e.g. to add custom heuristics).
+		 *
+		 * @param bool   $is_bot     Result from BotDetector.
+		 * @param string $user_agent Current request UA.
+		 */
+		return (bool) apply_filters( 'hoay_is_search_bot', $is_bot, $user_agent );
 	}
 
 	/**
