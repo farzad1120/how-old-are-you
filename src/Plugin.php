@@ -60,9 +60,11 @@ final class Plugin {
 
 		if ( is_admin() ) {
 			( new Settings\SettingsPage() )->register();
+		} else {
+			( new Frontend\Gate() )->register();
 		}
 
-		// Frontend gate and AJAX handler are wired in subsequent steps.
+		// AJAX handler is wired in step 10.
 	}
 
 	/**

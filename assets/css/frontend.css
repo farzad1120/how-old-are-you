@@ -1,0 +1,161 @@
+/* How Old Are You — verification overlay */
+
+:root {
+	--hoay-bg: #0b0b0b;
+	--hoay-opacity: 0.92;
+	--hoay-panel: #ffffff;
+	--hoay-text: #111111;
+	--hoay-accent: #c7a008;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background: var(--hoay-bg);
+	color: var(--hoay-text);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.hoay-body {
+	overflow: hidden;
+}
+
+.hoay-overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--hoay-bg);
+	background: rgba(0, 0, 0, var(--hoay-opacity));
+	padding: 24px;
+}
+
+.hoay-panel {
+	background: var(--hoay-panel);
+	color: var(--hoay-text);
+	width: min(440px, 100%);
+	padding: 36px 32px;
+	border-radius: 12px;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+	text-align: center;
+}
+
+.hoay-logo {
+	max-width: 160px;
+	max-height: 80px;
+	display: block;
+	margin: 0 auto 16px;
+}
+
+.hoay-heading {
+	font-size: 22px;
+	font-weight: 600;
+	margin: 0 0 8px;
+	line-height: 1.3;
+}
+
+.hoay-body-text {
+	color: var(--hoay-text);
+	opacity: 0.78;
+	margin: 0 0 22px;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.hoay-form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.hoay-label {
+	text-align: left;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--hoay-text);
+	opacity: 0.75;
+}
+
+.hoay-input {
+	font: inherit;
+	padding: 12px 14px;
+	border: 1px solid rgba(0, 0, 0, 0.18);
+	border-radius: 8px;
+	background: #fff;
+	color: var(--hoay-text);
+	transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.hoay-input:focus {
+	outline: none;
+	border-color: var(--hoay-accent);
+	box-shadow: 0 0 0 3px rgba(199, 160, 8, 0.18);
+}
+
+.hoay-button {
+	font: inherit;
+	font-weight: 600;
+	padding: 12px 18px;
+	border-radius: 8px;
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: transform 80ms ease, opacity 120ms ease, background 120ms ease;
+}
+
+.hoay-button:active {
+	transform: translateY(1px);
+}
+
+.hoay-button--primary {
+	background: var(--hoay-accent);
+	color: #fff;
+}
+
+.hoay-button--primary:hover {
+	opacity: 0.92;
+}
+
+.hoay-button--ghost {
+	background: transparent;
+	color: var(--hoay-text);
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.hoay-button--ghost:hover {
+	background: rgba(0, 0, 0, 0.04);
+}
+
+.hoay-confirm-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+
+.hoay-error {
+	color: #b22222;
+	font-size: 14px;
+	margin: 4px 0 0;
+	min-height: 1em;
+}
+
+.hoay-button--loading {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.hoay-step[hidden] {
+	display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hoay-button { transition: none; }
+}
