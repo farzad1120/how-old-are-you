@@ -1,0 +1,53 @@
+default:
+  image: php:8.2-cli
+
+stages:
+  - lint
+  - test
+
+variables:
+  COMPOSER_ALLOW_SUPERUSER: "1"
+  COMPOSER_NO_INTERACTION: "1"
+  COMPOSER_CACHE_DIR: "$CI_PROJECT_DIR/.composer-cache"
+
+cache:
+  key:
+    files:
+      - composer.json
+  paths:
+    - .composer-cache/
+    - vendor/
+
+.composer_setup: &composer_setup
+  before_script:
+    - apt-get update -qq && apt-get install -qq -y git unzip libzip-dev
+    - docker-php-ext-install zip
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    - composer install --prefer-dist --no-progress
+
+lint:
+  stage: lint
+  <<: *composer_setup
+  script:
+    - composer run lint
+
+test:php74:
+  stage: test
+  image: php:7.4-cli
+  <<: *composer_setup
+  script:
+    - composer run test:unit
+
+test:php81:
+  stage: test
+  image: php:8.1-cli
+  <<: *composer_setup
+  script:
+    - composer run test:unit
+
+test:php83:
+  stage: test
+  image: php:8.3-cli
+  <<: *composer_setup
+  script:
+    - composer run test:unit
