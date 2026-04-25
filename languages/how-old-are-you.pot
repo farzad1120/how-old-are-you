@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: How Old Are You 1.0.0\n"
+"Project-Id-Version: How Old Are You 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/how-old-are-you\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-25T12:07:54+00:00\n"
+"POT-Creation-Date: 2026-04-25T13:26:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: how-old-are-you\n"
@@ -39,13 +39,13 @@ msgstr ""
 msgid "https://github.com/farzadzarasvand"
 msgstr ""
 
-#: src/Frontend/Renderer.php:95
-#: templates/modal.php:98
-#: templates/modal.php:99
+#: src/Frontend/Renderer.php:162
+#: templates/modal.php:131
+#: templates/modal.php:132
 msgid "Month"
 msgstr ""
 
-#: src/Frontend/Renderer.php:96
+#: src/Frontend/Renderer.php:163
 msgid "Mon"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 
 #: src/Settings/SettingsPage.php:48
 #: src/Settings/SettingsPage.php:49
-#: templates/admin/settings-page.php:24
+#: templates/admin/settings-page.php:29
 msgid "Age Verification"
 msgstr ""
 
@@ -96,8 +96,9 @@ msgid "Use this image"
 msgstr ""
 
 #: src/Settings/SettingsPage.php:109
-#: templates/admin/settings-page.php:153
-#: templates/admin/settings-page.php:180
+#: templates/admin/settings-page.php:158
+#: templates/admin/settings-page.php:185
+#: templates/admin/settings-page.php:365
 msgid "Remove"
 msgstr ""
 
@@ -127,259 +128,329 @@ msgstr ""
 msgid "Verified."
 msgstr ""
 
-#: templates/admin/settings-page.php:25
+#: templates/admin/settings-page.php:30
 msgid "Block under-age visitors from your public site with a customizable verification gate."
 msgstr ""
 
-#: templates/admin/settings-page.php:30
+#: templates/admin/settings-page.php:35
 msgid "Behavior"
 msgstr ""
 
-#: templates/admin/settings-page.php:33
+#: templates/admin/settings-page.php:38
 msgid "Enable gate"
 msgstr ""
 
-#: templates/admin/settings-page.php:37
+#: templates/admin/settings-page.php:42
 msgid "Block under-age visitors on the public frontend."
 msgstr ""
 
-#: templates/admin/settings-page.php:42
+#: templates/admin/settings-page.php:47
 msgid "Minimum age"
 msgstr ""
 
-#: templates/admin/settings-page.php:45
+#: templates/admin/settings-page.php:50
 msgid "Visitors below this age cannot enter."
 msgstr ""
 
-#: templates/admin/settings-page.php:49
+#: templates/admin/settings-page.php:54
 msgid "Verification mode"
 msgstr ""
 
-#: templates/admin/settings-page.php:54
+#: templates/admin/settings-page.php:59
 msgid "Date of birth — calculate age from the entered DOB."
 msgstr ""
 
-#: templates/admin/settings-page.php:58
+#: templates/admin/settings-page.php:63
 msgid "Confirmation — visitor clicks \"I am over X\" / \"I am under X\"."
 msgstr ""
 
-#: templates/admin/settings-page.php:64
+#: templates/admin/settings-page.php:69
 msgid "DOB input style"
 msgstr ""
 
-#: templates/admin/settings-page.php:69
+#: templates/admin/settings-page.php:74
 msgid "Native HTML5 date input (browser picker, follows the document language)."
 msgstr ""
 
-#: templates/admin/settings-page.php:73
+#: templates/admin/settings-page.php:78
 msgid "Site-localized dropdowns (day / month / year — month names always follow the site language)."
 msgstr ""
 
-#: templates/admin/settings-page.php:80
+#: templates/admin/settings-page.php:85
 msgid "Cookie"
 msgstr ""
 
-#: templates/admin/settings-page.php:83
+#: templates/admin/settings-page.php:88
 msgid "Cookie name"
 msgstr ""
 
-#: templates/admin/settings-page.php:87
+#: templates/admin/settings-page.php:92
 msgid "Cookie lifetime (days)"
 msgstr ""
 
-#: templates/admin/settings-page.php:91
+#: templates/admin/settings-page.php:96
 msgid "SameSite"
 msgstr ""
 
-#: templates/admin/settings-page.php:102
+#: templates/admin/settings-page.php:107
 msgid "Messages"
 msgstr ""
 
-#: templates/admin/settings-page.php:103
+#: templates/admin/settings-page.php:108
 msgid "Use {age} to insert the configured minimum age."
 msgstr ""
 
-#: templates/admin/settings-page.php:106
+#: templates/admin/settings-page.php:111
 msgid "Heading"
 msgstr ""
 
-#: templates/admin/settings-page.php:110
+#: templates/admin/settings-page.php:115
 msgid "Body text"
 msgstr ""
 
-#: templates/admin/settings-page.php:114
+#: templates/admin/settings-page.php:119
 msgid "DOB field label"
 msgstr ""
 
-#: templates/admin/settings-page.php:118
+#: templates/admin/settings-page.php:123
 msgid "\"Over X\" button label"
 msgstr ""
 
-#: templates/admin/settings-page.php:122
+#: templates/admin/settings-page.php:127
 msgid "\"Under X\" button label"
 msgstr ""
 
-#: templates/admin/settings-page.php:126
+#: templates/admin/settings-page.php:131
 msgid "Submit button label"
 msgstr ""
 
-#: templates/admin/settings-page.php:130
+#: templates/admin/settings-page.php:135
 msgid "Rejection heading"
 msgstr ""
 
-#: templates/admin/settings-page.php:134
+#: templates/admin/settings-page.php:139
 msgid "Rejection body"
 msgstr ""
 
-#: templates/admin/settings-page.php:139
+#: templates/admin/settings-page.php:144
 msgid "Appearance — Logo"
 msgstr ""
 
-#: templates/admin/settings-page.php:142
+#: templates/admin/settings-page.php:147
 msgid "Logo"
 msgstr ""
 
-#: templates/admin/settings-page.php:145
-#: templates/admin/settings-page.php:149
+#: templates/admin/settings-page.php:150
+#: templates/admin/settings-page.php:154
 msgid "No logo selected"
 msgstr ""
 
-#: templates/admin/settings-page.php:152
-#: templates/admin/settings-page.php:179
+#: templates/admin/settings-page.php:157
+#: templates/admin/settings-page.php:184
+#: templates/admin/settings-page.php:364
 msgid "Choose image"
 msgstr ""
 
-#: templates/admin/settings-page.php:157
+#: templates/admin/settings-page.php:162
 msgid "Logo max width (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:162
+#: templates/admin/settings-page.php:167
 msgid "Appearance — Background"
 msgstr ""
 
-#: templates/admin/settings-page.php:165
+#: templates/admin/settings-page.php:170
 msgid "Background color"
 msgstr ""
 
-#: templates/admin/settings-page.php:169
+#: templates/admin/settings-page.php:174
 msgid "Background image"
 msgstr ""
 
-#: templates/admin/settings-page.php:172
-#: templates/admin/settings-page.php:176
+#: templates/admin/settings-page.php:177
+#: templates/admin/settings-page.php:181
 msgid "No background image selected"
 msgstr ""
 
-#: templates/admin/settings-page.php:184
+#: templates/admin/settings-page.php:189
 msgid "Background image size"
 msgstr ""
 
-#: templates/admin/settings-page.php:194
+#: templates/admin/settings-page.php:199
 msgid "Overlay opacity"
 msgstr ""
 
-#: templates/admin/settings-page.php:198
+#: templates/admin/settings-page.php:203
 msgid "Backdrop blur (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:201
+#: templates/admin/settings-page.php:206
 msgid "Frosted-glass effect over the background. Set to 0 to disable."
 msgstr ""
 
-#: templates/admin/settings-page.php:206
+#: templates/admin/settings-page.php:211
 msgid "Appearance — Panel"
 msgstr ""
 
-#: templates/admin/settings-page.php:209
+#: templates/admin/settings-page.php:214
 msgid "Panel color"
 msgstr ""
 
-#: templates/admin/settings-page.php:213
+#: templates/admin/settings-page.php:218
 msgid "Panel width (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:217
+#: templates/admin/settings-page.php:222
 msgid "Panel padding (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:221
+#: templates/admin/settings-page.php:226
 msgid "Panel border radius (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:226
+#: templates/admin/settings-page.php:231
 msgid "Appearance — Typography"
 msgstr ""
 
-#: templates/admin/settings-page.php:229
+#: templates/admin/settings-page.php:234
 msgid "Font family"
 msgstr ""
 
-#: templates/admin/settings-page.php:232
+#: templates/admin/settings-page.php:237
 msgid "CSS font stack. Leave empty to inherit a system default. Quotes, commas, hyphens, and spaces only."
 msgstr ""
 
-#: templates/admin/settings-page.php:236
+#: templates/admin/settings-page.php:241
 msgid "Body font size (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:240
+#: templates/admin/settings-page.php:245
 msgid "Heading font size (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:244
+#: templates/admin/settings-page.php:249
 msgid "Text color"
 msgstr ""
 
-#: templates/admin/settings-page.php:248
+#: templates/admin/settings-page.php:253
 msgid "Text alignment"
 msgstr ""
 
-#: templates/admin/settings-page.php:259
+#: templates/admin/settings-page.php:264
 msgid "Appearance — Controls"
 msgstr ""
 
-#: templates/admin/settings-page.php:262
+#: templates/admin/settings-page.php:267
 msgid "Accent color"
 msgstr ""
 
-#: templates/admin/settings-page.php:266
+#: templates/admin/settings-page.php:271
 msgid "Button border radius (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:270
+#: templates/admin/settings-page.php:275
 msgid "Input border radius (px)"
 msgstr ""
 
-#: templates/admin/settings-page.php:275
+#: templates/admin/settings-page.php:280
 msgid "Appearance — Custom CSS"
 msgstr ""
 
-#: templates/admin/settings-page.php:278
+#: templates/admin/settings-page.php:283
 msgid "Custom CSS"
 msgstr ""
 
-#: templates/admin/settings-page.php:282
+#: templates/admin/settings-page.php:287
 msgid "Scoped to the verification overlay. Tags and obvious script sequences are stripped on save. The following CSS variables are available:"
 msgstr ""
 
-#: templates/admin/settings-page.php:294
-msgid "Exclusions"
-msgstr ""
-
-#: templates/admin/settings-page.php:297
-msgid "Excluded paths"
+#: templates/admin/settings-page.php:299
+msgid "SEO"
 msgstr ""
 
 #: templates/admin/settings-page.php:300
+msgid "Make the gate friendly to search engines and social media link previews."
+msgstr ""
+
+#: templates/admin/settings-page.php:303
+msgid "Bypass for crawlers"
+msgstr ""
+
+#: templates/admin/settings-page.php:307
+msgid "Allow known search engines and social-media unfurlers to see the real page."
+msgstr ""
+
+#: templates/admin/settings-page.php:312
+msgid "Crawler user agents"
+msgstr ""
+
+#: templates/admin/settings-page.php:316
+msgid "One token per line, case-insensitive substring match. Leave blank to use the built-in defaults:"
+msgstr ""
+
+#: templates/admin/settings-page.php:322
+msgid "Robots meta"
+msgstr ""
+
+#: templates/admin/settings-page.php:325
+msgid "Comma-separated. Allowed: index, noindex, follow, nofollow, noarchive, nosnippet, noimageindex, none, all."
+msgstr ""
+
+#: templates/admin/settings-page.php:329
+msgid "Canonical URL"
+msgstr ""
+
+#: templates/admin/settings-page.php:333
+msgid "Emit a canonical link pointing to the requested URL on the overlay."
+msgstr ""
+
+#: templates/admin/settings-page.php:338
+msgid "Inherit Open Graph"
+msgstr ""
+
+#: templates/admin/settings-page.php:342
+msgid "Use the resolved post or term's title (and featured image) for og:title / og:image when available."
+msgstr ""
+
+#: templates/admin/settings-page.php:347
+msgid "Meta description"
+msgstr ""
+
+#: templates/admin/settings-page.php:350
+msgid "Optional. Falls back to the body text above when empty."
+msgstr ""
+
+#: templates/admin/settings-page.php:354
+msgid "Open Graph image"
+msgstr ""
+
+#: templates/admin/settings-page.php:357
+#: templates/admin/settings-page.php:361
+msgid "No image selected"
+msgstr ""
+
+#: templates/admin/settings-page.php:366
+msgid "Used when the resolved page has no featured image. Recommended size 1200×630."
+msgstr ""
+
+#: templates/admin/settings-page.php:371
+msgid "Exclusions"
+msgstr ""
+
+#: templates/admin/settings-page.php:374
+msgid "Excluded paths"
+msgstr ""
+
+#: templates/admin/settings-page.php:377
 msgid "One path per line. Paths starting with the listed value bypass the gate (e.g. /privacy, /contact)."
 msgstr ""
 
-#: templates/modal.php:92
-#: templates/modal.php:93
+#: templates/modal.php:125
+#: templates/modal.php:126
 msgid "Day"
 msgstr ""
 
-#: templates/modal.php:104
-#: templates/modal.php:105
+#: templates/modal.php:137
+#: templates/modal.php:138
 msgid "Year"
 msgstr ""

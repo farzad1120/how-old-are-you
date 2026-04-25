@@ -102,6 +102,33 @@ Every theming setting above is exposed as a CSS custom property, so Custom CSS c
 --hoay-panel-radius    --hoay-logo-max
 ```
 
+## SEO
+
+The verification gate blocks the page body for unverified visitors. Without these settings, that means Googlebot and social-media link unfurlers would see the verification overlay instead of your content. The SEO section makes the gate friendly to crawlers while keeping the gate intact for human visitors.
+
+| Field | Type | Default | Notes |
+|---|---|---|---|
+| Bypass for crawlers | bool | `true` | When on, requests with a UA matching the configured list bypass the gate entirely and see the real page. |
+| Crawler user agents | textarea (one per line) | empty (uses built-in list) | Case-insensitive substring matches. The built-in list covers Googlebot, Bingbot, Slurp, DuckDuckBot, Baiduspider, YandexBot, Sogou, Applebot, facebookexternalhit, Twitterbot, LinkedInBot, Pinterestbot, TelegramBot, Discordbot, Slackbot, WhatsApp, ia_archiver, AdsBot-Google, and more. |
+| Robots meta | text | `noindex,nofollow` | Comma-separated tokens. Allowed: `index`, `noindex`, `follow`, `nofollow`, `noarchive`, `nosnippet`, `noimageindex`, `none`, `all`. |
+| Canonical URL | bool | `true` | Emit `<link rel="canonical">` pointing to the requested URL on the overlay. |
+| Inherit Open Graph | bool | `true` | When the resolved request maps to a `WP_Post` or `WP_Term`, derive `og:title` from it. Featured image is used for `og:image` if no fallback is configured. `og:type` becomes `article` for posts. |
+| Meta description | textarea | empty | Falls back to the gate body text when empty. |
+| Open Graph image | media library | none | Fallback `og:image` (recommended 1200×630). |
+
+The overlay always emits `og:site_name` and `twitter:card="summary_large_image"`.
+
+### Filters
+
+| Hook | Type | Purpose |
+|---|---|---|
+| `hoay_bot_tokens` | filter (string[]) | Modify the effective bot-token list per request. |
+| `hoay_is_search_bot` | filter (bool) | Final override of the bot decision. |
+
+### Tradeoff
+
+Letting bots through means a visitor can also bypass the gate by spoofing their User-Agent (e.g. setting it to `Googlebot`). This is consistent with how every age-gate plugin works: enforcement is best-effort and reflects the same content a search engine would index. If your compliance regime forbids any bot bypass, disable the **Bypass for crawlers** checkbox — Googlebot will then see the verification overlay and the site will not be indexed.
+
 ## Exclusions
 
 **Excluded paths** is a textarea, one path per line. Any request whose path *starts with* one of the listed prefixes bypasses the gate.

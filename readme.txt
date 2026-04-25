@@ -4,7 +4,7 @@ Tags: age verification, age gate, compliance, alcohol, cannabis
 Requires at least: 6.0
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -72,6 +72,15 @@ In a single signed cookie (`hoay_verified` by default). Nothing is stored server
 
 == Changelog ==
 
+= 1.2.0 =
+
+* SEO controls — search engines and social-media unfurlers (Googlebot, Bingbot, Twitterbot, facebookexternalhit, LinkedInBot, etc.) bypass the gate by default so the real page is indexed and link previews work.
+* Configurable user-agent token list — admins can add, remove, or replace the built-in bot list.
+* Configurable robots meta tag on the verification overlay (default `noindex,nofollow`, with full token validation).
+* Optional canonical URL on the overlay pointing to the originally requested URL.
+* Open Graph / Twitter Card tags on the overlay; when enabled, og:title/og:image inherit from the resolved post (with featured image) or a configurable fallback OG image.
+* Optional meta description override; falls back to the gate body text.
+
 = 1.1.0 =
 
 * New theming options: font family, body and heading sizes, panel width/padding/border-radius, button/input border-radius, backdrop blur, background image (with cover/contain/auto sizing), logo max width, text alignment.
@@ -84,6 +93,10 @@ In a single signed cookie (`hoay_verified` by default). Nothing is stored server
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+
+Adds SEO controls so search engines and social-media link previews see the real page instead of the verification gate. Backward compatible — existing settings keep working.
 
 = 1.1.0 =
 

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-04-25
+
+### Added
+- SEO bot bypass: search engines and social-media unfurlers (Googlebot, Bingbot, Slurp, DuckDuckBot, Baiduspider, YandexBot, facebookexternalhit, Twitterbot, LinkedInBot, Pinterestbot, TelegramBot, Discordbot, Slackbot, WhatsApp, Applebot, ia_archiver, etc.) bypass the gate by default so the real page is indexed and link previews work.
+- New settings: `seo_bot_bypass`, `seo_bot_user_agents`, `seo_robots_meta`, `seo_canonical_to_request`, `seo_inherit_open_graph`, `seo_meta_description`, `seo_og_image_id`.
+- New `HOAY\Support\BotDetector` class — pure case-insensitive substring matcher with a built-in `DEFAULT_TOKENS` list, used by the gate and unit-tested.
+- Two new filters: `hoay_bot_tokens` (modify the effective token list) and `hoay_is_search_bot` (final override).
+- Verification overlay now emits configurable `<meta name="robots">`, `<meta name="description">`, `<link rel="canonical">`, full Open Graph (`og:title`, `og:type`, `og:url`, `og:site_name`, `og:image`), and Twitter Card (`summary_large_image`) tags.
+- When **Inherit Open Graph** is enabled, `og:title` is derived from the resolved `WP_Post`/`WP_Term` and the featured image is used for `og:image` if no fallback is configured.
+- New sanitisers: `Sanitizer::robots_meta()` (validates against the standard robots tokens) and `Sanitizer::user_agent_list()` (newline-delimited UA tokens).
+
 ## [1.1.0] - 2026-04-25
 
 ### Added
@@ -42,6 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions and GitLab CI pipelines on PHP 7.4 / 8.1 / 8.3.
 - Docker dev environment (`docker-compose.dev.yml`) with WordPress + MariaDB + WP-CLI.
 
-[Unreleased]: https://github.com/farzadzarasvand/how-old-are-you/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/farzadzarasvand/how-old-are-you/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/farzadzarasvand/how-old-are-you/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/farzadzarasvand/how-old-are-you/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/farzadzarasvand/how-old-are-you/releases/tag/v1.0.0

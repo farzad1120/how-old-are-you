@@ -70,6 +70,30 @@ The result shape is:
 ]
 ```
 
+### `hoay_bot_tokens` *(string[])*
+
+Modify the effective list of UA tokens that bypass the gate. Receives the configured list (or `BotDetector::DEFAULT_TOKENS` when the admin field is empty).
+
+```php
+add_filter( 'hoay_bot_tokens', function ( array $tokens, string $user_agent ) {
+    $tokens[] = 'MyCustomBot';
+    return $tokens;
+}, 10, 2 );
+```
+
+### `hoay_is_search_bot` *(bool)*
+
+Final override of the bot decision after `BotDetector::is_bot()` has run.
+
+```php
+add_filter( 'hoay_is_search_bot', function ( bool $is_bot, string $user_agent ) {
+    if ( str_contains( $user_agent, 'corp-monitor' ) ) {
+        return true; // Always treat the internal monitor as a bot.
+    }
+    return $is_bot;
+}, 10, 2 );
+```
+
 ### `hoay_cookie_args` *(array)*
 
 Adjust cookie options before `setcookie()` is called.
