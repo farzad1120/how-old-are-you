@@ -2,10 +2,23 @@
 
 :root {
 	--hoay-bg: #0b0b0b;
+	--hoay-bg-image: none;
+	--hoay-bg-size: cover;
 	--hoay-opacity: 0.92;
+	--hoay-blur: 0px;
 	--hoay-panel: #ffffff;
+	--hoay-panel-width: 440px;
+	--hoay-panel-padding: 36px;
+	--hoay-panel-radius: 12px;
 	--hoay-text: #111111;
+	--hoay-text-align: center;
 	--hoay-accent: #c7a008;
+	--hoay-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--hoay-font-size: 16px;
+	--hoay-heading-size: 22px;
+	--hoay-button-radius: 8px;
+	--hoay-input-radius: 8px;
+	--hoay-logo-max: 160px;
 }
 
 * {
@@ -19,7 +32,8 @@ html, body {
 	width: 100%;
 	background: var(--hoay-bg);
 	color: var(--hoay-text);
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: var(--hoay-font);
+	font-size: var(--hoay-font-size);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -34,30 +48,44 @@ html, body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--hoay-bg);
-	background: rgba(0, 0, 0, var(--hoay-opacity));
+	background-color: var(--hoay-bg);
+	background-image: var(--hoay-bg-image);
+	background-size: var(--hoay-bg-size);
+	background-position: center center;
+	background-repeat: no-repeat;
 	padding: 24px;
 }
 
+.hoay-overlay::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, var(--hoay-opacity));
+	-webkit-backdrop-filter: blur(var(--hoay-blur));
+	backdrop-filter: blur(var(--hoay-blur));
+	pointer-events: none;
+}
+
 .hoay-panel {
+	position: relative;
 	background: var(--hoay-panel);
 	color: var(--hoay-text);
-	width: min(440px, 100%);
-	padding: 36px 32px;
-	border-radius: 12px;
+	width: min(var(--hoay-panel-width), 100%);
+	padding: var(--hoay-panel-padding);
+	border-radius: var(--hoay-panel-radius);
 	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-	text-align: center;
+	text-align: var(--hoay-text-align);
 }
 
 .hoay-logo {
-	max-width: 160px;
-	max-height: 80px;
+	max-width: var(--hoay-logo-max);
+	max-height: 100px;
 	display: block;
 	margin: 0 auto 16px;
 }
 
 .hoay-heading {
-	font-size: 22px;
+	font-size: var(--hoay-heading-size);
 	font-weight: 600;
 	margin: 0 0 8px;
 	line-height: 1.3;
@@ -67,7 +95,7 @@ html, body {
 	color: var(--hoay-text);
 	opacity: 0.78;
 	margin: 0 0 22px;
-	font-size: 15px;
+	font-size: var(--hoay-font-size);
 	line-height: 1.5;
 }
 
@@ -85,27 +113,45 @@ html, body {
 	opacity: 0.75;
 }
 
-.hoay-input {
+.hoay-format-hint {
+	display: block;
+	font-size: 12px;
+	font-weight: 400;
+	margin-top: 4px;
+	opacity: 0.6;
+}
+
+.hoay-input,
+.hoay-select {
 	font: inherit;
+	font-size: var(--hoay-font-size);
 	padding: 12px 14px;
 	border: 1px solid rgba(0, 0, 0, 0.18);
-	border-radius: 8px;
+	border-radius: var(--hoay-input-radius);
 	background: #fff;
 	color: var(--hoay-text);
 	transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
-.hoay-input:focus {
+.hoay-input:focus,
+.hoay-select:focus {
 	outline: none;
 	border-color: var(--hoay-accent);
-	box-shadow: 0 0 0 3px rgba(199, 160, 8, 0.18);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--hoay-accent) 25%, transparent);
+}
+
+.hoay-dob-selects {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 8px;
 }
 
 .hoay-button {
 	font: inherit;
+	font-size: var(--hoay-font-size);
 	font-weight: 600;
 	padding: 12px 18px;
-	border-radius: 8px;
+	border-radius: var(--hoay-button-radius);
 	border: 1px solid transparent;
 	cursor: pointer;
 	transition: transform 80ms ease, opacity 120ms ease, background 120ms ease;

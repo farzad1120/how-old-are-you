@@ -67,17 +67,41 @@ final class Renderer {
 	 * Render the merged inline CSS variables for the overlay.
 	 *
 	 * Public static so the template can call it without a Renderer instance.
+	 * Every value defined here is also documented next to the Custom CSS
+	 * field on the settings page.
 	 *
 	 * @param array<string,mixed> $options Settings.
 	 * @return string CSS rule body for `.hoay-overlay`.
 	 */
 	public static function css_variables( array $options ) {
+		$bg_image_url = ! empty( $options['background_image_id'] )
+			? (string) wp_get_attachment_image_url( (int) $options['background_image_id'], 'full' )
+			: '';
+
+		$font_family = (string) $options['font_family'];
+		if ( '' === $font_family ) {
+			$font_family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif';
+		}
+
 		$vars = array(
-			'--hoay-bg'      => (string) $options['background_color'],
-			'--hoay-opacity' => (string) $options['overlay_opacity'],
-			'--hoay-panel'   => (string) $options['panel_color'],
-			'--hoay-text'    => (string) $options['text_color'],
-			'--hoay-accent'  => (string) $options['accent_color'],
+			'--hoay-bg'             => (string) $options['background_color'],
+			'--hoay-bg-image'       => '' !== $bg_image_url ? 'url("' . esc_url_raw( $bg_image_url ) . '")' : 'none',
+			'--hoay-bg-size'        => (string) $options['background_image_size'],
+			'--hoay-opacity'        => (string) $options['overlay_opacity'],
+			'--hoay-blur'           => (int) $options['backdrop_blur_px'] . 'px',
+			'--hoay-panel'          => (string) $options['panel_color'],
+			'--hoay-panel-width'    => (int) $options['panel_width_px'] . 'px',
+			'--hoay-panel-padding'  => (int) $options['panel_padding_px'] . 'px',
+			'--hoay-panel-radius'   => (int) $options['panel_radius_px'] . 'px',
+			'--hoay-text'           => (string) $options['text_color'],
+			'--hoay-text-align'     => (string) $options['text_align'],
+			'--hoay-accent'         => (string) $options['accent_color'],
+			'--hoay-font'           => $font_family,
+			'--hoay-font-size'      => (int) $options['font_size_base_px'] . 'px',
+			'--hoay-heading-size'   => (int) $options['heading_size_px'] . 'px',
+			'--hoay-button-radius'  => (int) $options['button_radius_px'] . 'px',
+			'--hoay-input-radius'   => (int) $options['input_radius_px'] . 'px',
+			'--hoay-logo-max'       => (int) $options['logo_max_width_px'] . 'px',
 		);
 
 		$out = '';
