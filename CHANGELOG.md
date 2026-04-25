@@ -53,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions and GitLab CI pipelines on PHP 7.4 / 8.1 / 8.3.
 - Docker dev environment (`docker-compose.dev.yml`) with WordPress + MariaDB + WP-CLI.
 
-[Unreleased]: https://github.com/farzadzarasvand/how-old-are-you/compare/v1.2.0...HEAD
-[1.2.0]: https://github.com/farzadzarasvand/how-old-are-you/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/farzadzarasvand/how-old-are-you/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/farzadzarasvand/how-old-are-you/releases/tag/v1.0.0
+[Unreleased]: https://github.com/farzad1120/how-old-are-you/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/farzad1120/how-old-are-you/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/farzad1120/how-old-are-you/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/farzad1120/how-old-are-you/releases/tag/v1.0.0

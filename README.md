@@ -1,6 +1,6 @@
 # How Old Are You
 
-[![CI](https://github.com/farzadzarasvand/how-old-are-you/actions/workflows/ci.yml/badge.svg)](https://github.com/farzadzarasvand/how-old-are-you/actions/workflows/ci.yml)
+[![CI](https://github.com/farzad1120/how-old-are-you/actions/workflows/ci.yml/badge.svg)](https://github.com/farzad1120/how-old-are-you/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](LICENSE)
 [![PHP](https://img.shields.io/badge/php-%E2%89%A57.4-777bb3)](composer.json)
 [![WordPress](https://img.shields.io/badge/wordpress-%E2%89%A56.0-21759b)](readme.txt)

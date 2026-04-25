@@ -1,10 +1,10 @@
 {
-    "name": "farzadzarasvand/how-old-are-you",
+    "name": "farzad1120/how-old-are-you",
     "description": "Block under-age visitors from the public WordPress frontend with a customizable age-verification gate.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "keywords": ["wordpress", "plugin", "age-verification", "age-gate", "compliance"],
-    "homepage": "https://github.com/farzadzarasvand/how-old-are-you",
+    "homepage": "https://github.com/farzad1120/how-old-are-you",
     "authors": [
         {
             "name": "Farzad Zarasvand",

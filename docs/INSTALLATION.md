@@ -2,7 +2,7 @@
 
 ## From a release zip
 
-1. Download the latest release zip from the [Releases page](https://github.com/farzadzarasvand/how-old-are-you/releases).
+1. Download the latest release zip from the [Releases page](https://github.com/farzad1120/how-old-are-you/releases).
 2. In WP admin, go to **Plugins → Add New → Upload Plugin**, choose the zip, click **Install Now**.
 3. Click **Activate**.
 4. Visit **Settings → Age Verification** to configure.
@@ -11,7 +11,7 @@
 
 ```sh
 cd wp-content/plugins/
-git clone https://github.com/farzadzarasvand/how-old-are-you.git
+git clone https://github.com/farzad1120/how-old-are-you.git
 cd how-old-are-you
 # Optional: install dev deps for linting/tests.
 composer install
@@ -26,7 +26,7 @@ If your site uses `composer/installers` (Bedrock, Roots, etc.):
 ```json
 {
   "require": {
-    "farzadzarasvand/how-old-are-you": "^1.0"
+    "farzad1120/how-old-are-you": "^1.0"
   }
 }
 ```

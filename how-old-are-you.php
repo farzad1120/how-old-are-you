@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name:       How Old Are You
- * Plugin URI:        https://github.com/farzadzarasvand/how-old-are-you
+ * Plugin URI:        https://github.com/farzad1120/how-old-are-you
  * Description:       Block under-age visitors from the public frontend with a customizable age-verification gate. Supports date-of-birth or simple confirmation modes, signed cookies, and full theming.
  * Version:           1.2.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Farzad Zarasvand
- * Author URI:        https://github.com/farzadzarasvand
+ * Author URI:        https://github.com/farzad1120
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain:       how-old-are-you

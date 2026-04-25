@@ -1,5 +1,5 @@
 === How Old Are You ===
-Contributors: farzadzarasvand
+Contributors: farzad1120
 Tags: age verification, age gate, compliance, alcohol, cannabis
 Requires at least: 6.0
 Tested up to: 6.5
