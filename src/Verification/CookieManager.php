@@ -100,7 +100,7 @@ final class CookieManager {
 			'expires'  => $expiry,
 			'path'     => defined( 'COOKIEPATH' ) && COOKIEPATH ? COOKIEPATH : '/',
 			'domain'   => defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : '',
-			'secure'   => function_exists( 'is_ssl' ) ? is_ssl() : false,
+			'secure'   => self::is_secure_request(),
 			'httponly' => true,
 			'samesite' => self::normalise_same_site( $same_site ),
 		);
@@ -152,7 +152,7 @@ final class CookieManager {
 			'expires'  => time() - 3600,
 			'path'     => defined( 'COOKIEPATH' ) && COOKIEPATH ? COOKIEPATH : '/',
 			'domain'   => defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : '',
-			'secure'   => function_exists( 'is_ssl' ) ? is_ssl() : false,
+			'secure'   => self::is_secure_request(),
 			'httponly' => true,
 			'samesite' => 'Lax',
 		);
@@ -172,6 +172,24 @@ final class CookieManager {
 			return wp_salt( 'auth' ) . '|hoay';
 		}
 		return 'hoay-test-secret';
+	}
+
+	/**
+	 * Whether the verification cookie should carry the Secure flag.
+	 *
+	 * In a normal WordPress context this mirrors `is_ssl()` — the cookie is
+	 * marked Secure on HTTPS requests and not on plain HTTP, which matches
+	 * what every browser will accept. The defensive `! function_exists`
+	 * branch defaults to `true` so the flag is never silently dropped if
+	 * the function is unavailable (e.g. unit-test bootstrap without WP).
+	 *
+	 * @return bool
+	 */
+	private static function is_secure_request() {
+		if ( ! function_exists( 'is_ssl' ) ) {
+			return true;
+		}
+		return (bool) is_ssl();
 	}
 
 	/**
